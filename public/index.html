@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conv-AI | AI title review for conveyancers</title>
+<meta name="description" content="AI-powered title review for conveyancers. Upload the draft contract pack and get a title summary, draft enquiries, risks and a plain English client report.">
+<link rel="canonical" href="https://conv-ai.co.uk/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#003F2A">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Conv-AI">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://conv-ai.co.uk/">
+<meta property="og:title" content="Conv-AI | AI title review for conveyancers">
+<meta property="og:description" content="AI-powered title review for conveyancers. Upload the draft contract pack and get a title summary, draft enquiries, risks and a plain English client report.">
+<meta property="og:image" content="https://conv-ai.co.uk/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Conv-AI: clear property title intelligence, designed for conveyancers, by conveyancers.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conv-AI | AI title review for conveyancers">
+<meta name="twitter:description" content="AI-powered title review for conveyancers. Upload the draft contract pack and get a title summary, draft enquiries, risks and a plain English client report.">
+<meta name="twitter:image" content="https://conv-ai.co.uk/og.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://conv-ai.co.uk/#org", "name": "Conv-AI", "legalName": "Lucere TG Ltd", "url": "https://conv-ai.co.uk/", "logo": "https://conv-ai.co.uk/icon-512.png", "email": "hello@conv-ai.co.uk", "slogan": "Clear property title intelligence, designed for conveyancers, by conveyancers."}, {"@type": "WebSite", "@id": "https://conv-ai.co.uk/#site", "url": "https://conv-ai.co.uk/", "name": "Conv-AI", "publisher": {"@id": "https://conv-ai.co.uk/#org"}, "inLanguage": "en-GB"}, {"@type": "SoftwareApplication", "name": "Conv-AI", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://conv-ai.co.uk/", "description": "AI-powered title review for conveyancers. Upload the draft contract pack and get a title summary, draft enquiries, risks and a plain English client report.", "publisher": {"@id": "https://conv-ai.co.uk/#org"}, "audience": {"@type": "Audience", "audienceType": "Conveyancers and law firms in England and Wales"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Conv-AI brand guidelines, Nov 2026. Layout idea: one continuous scroll through sage mist,
+   with liquid-glass panels floating over slow green light, and two deep forest slabs for the
+   film and the principles. Orange appears only where something needs attention. */
+:root{
+  color-scheme:light;
+  --forest:#003F2A; --leaf:#5B9E42; --orange:#FF8800; --mist:#F1F7F0; --ink:#112D27;
+  --muted:#52665F; --hair:rgba(0,63,42,.12);
+  --st-exp-bg:#ECEFED; --st-exp:#5F6B67;
+  --st-no-bg:#E4F2E1;  --st-no:#2B6628;
+  --st-still-bg:#FFEDD8; --st-still:#994700;
+  --st-chk-bg:#E2EFFA; --st-chk:#1B5A8F;
+  --on-deep:#F1F7F0; --on-deep-muted:#A9C4B7;
+  --font:"Inter",Arial,Helvetica,sans-serif;
+  --wrap:1180px; --r:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--mist);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+h1,h2,h3{margin:0;font-weight:700;color:var(--forest);text-wrap:balance;letter-spacing:-.025em;line-height:1.06}
+h1{font-size:clamp(2.5rem,6.2vw,5rem);font-weight:800;letter-spacing:-.04em}
+h2{font-size:clamp(1.9rem,3.8vw,3.1rem)}
+h3{font-size:1.18rem;line-height:1.25;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.lede{font-size:1.18rem;color:var(--muted);max-width:60ch}
+.kicker{font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+section{padding:110px 0;position:relative}
+.head{display:flex;flex-direction:column;gap:16px;margin-bottom:48px;max-width:760px}
+.head.c{margin-left:auto;margin-right:auto;text-align:center;align-items:center}
+.ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.tile{width:48px;height:48px;border-radius:14px;background:var(--mist);display:grid;place-items:center;color:var(--forest);flex:none;box-shadow:inset 0 0 0 1px var(--hair)}
+.tile.warn{color:var(--orange)}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+
+/* ambient light */
+.orbs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.orbs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;will-change:transform}
+.orbs i:nth-child(1){width:560px;height:560px;left:-140px;top:-120px;background:#bfe3ad;animation:d1 26s ease-in-out infinite alternate}
+.orbs i:nth-child(2){width:480px;height:480px;right:-120px;top:22%;background:#8fc97a;opacity:.5;animation:d2 32s ease-in-out infinite alternate}
+.orbs i:nth-child(3){width:620px;height:620px;left:28%;bottom:-260px;background:#d7efd0}
+.orbs i:nth-child(4){width:340px;height:340px;left:55%;top:8%;background:#ffffff;opacity:.9}
+@keyframes d1{to{transform:translate(180px,140px) scale(1.15)}}
+@keyframes d2{to{transform:translate(-160px,120px) scale(.9)}}
+@keyframes d3{to{transform:translate(-120px,-160px) scale(1.1)}}
+
+/* liquid glass */
+.glass{position:relative;isolation:isolate;border-radius:var(--r);
+  background:linear-gradient(140deg,rgba(255,255,255,.78),rgba(255,255,255,.36) 55%,rgba(255,255,255,.56));
+  -webkit-backdrop-filter:blur(26px) saturate(185%);backdrop-filter:blur(26px) saturate(185%);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -10px 24px -14px rgba(0,63,42,.14),0 34px 70px -34px rgba(0,63,42,.4),0 2px 8px rgba(0,63,42,.05)}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.85),transparent 60%);opacity:0;transition:opacity .35s}
+.glass:hover::after{opacity:1}
+.deep .glass{background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 55%,rgba(255,255,255,.1));
+  border-color:rgba(255,255,255,.2);color:var(--on-deep);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.35),inset 0 -10px 24px -14px rgba(0,0,0,.3),0 34px 70px -34px rgba(0,0,0,.7)}
+.deep .glass::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.22),transparent 60%)}
+.lift{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.lift:hover{transform:translateY(-6px)}
+
+/* deep slabs */
+.deep{margin:0 14px;border-radius:44px;color:var(--on-deep);overflow:hidden;
+  background:radial-gradient(900px 520px at 12% 0%,#0d6a47,transparent 62%),radial-gradient(800px 520px at 100% 100%,#2f7a34,transparent 60%),var(--forest)}
+.deep h2,.deep h3{color:#fff}
+.deep .lede{color:var(--on-deep-muted)}
+.deep .kicker{color:#a8dc8f}
+.deep::before,.deep::after{content:"";position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.deep::before{width:420px;height:420px;background:#5B9E42;opacity:.35;left:60%;top:-140px;animation:d2 24s ease-in-out infinite alternate}
+.deep::after{width:360px;height:360px;background:#0f8a5c;opacity:.4;left:-100px;bottom:-120px;animation:d1 28s ease-in-out infinite alternate}
+.deep>.wrap{position:relative;z-index:1}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 1rem var(--font);padding:15px 24px;border-radius:14px;border:1.5px solid var(--forest);background:var(--forest);color:#fff;text-decoration:none;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 14px 28px -14px rgba(0,63,42,.7);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#00573a;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 20px 34px -14px rgba(0,63,42,.8)}
+.btn.out{background:rgba(255,255,255,.7);color:var(--forest);box-shadow:inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.btn.out:hover{background:#fff}
+.btn.sm{padding:10px 16px;font-size:.92rem;border-radius:12px}
+.btn .ic{width:20px;height:20px}
+.deep .btn.lightbtn{background:#fff;color:var(--forest);border-color:#fff}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* status pills */
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.78rem;padding:6px 12px;border-radius:99px;white-space:nowrap}
+.st .ic{width:14px;height:14px;stroke-width:2.4}
+.st.exp{background:var(--st-exp-bg);color:var(--st-exp)}
+.st.no{background:var(--st-no-bg);color:var(--st-no)}
+.st.still{background:var(--st-still-bg);color:var(--st-still)}
+.st.chk{background:var(--st-chk-bg);color:var(--st-chk)}
+.reviewed{display:inline-flex;align-items:center;gap:10px;background:var(--mist);border-radius:14px;padding:12px 16px;font-weight:700;font-size:.9rem;color:var(--ink)}
+.reviewed .ic{color:var(--leaf)}
+
+/* nav */
+header.nav{position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 14px}
+.navin{max-width:1220px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:10px 12px 10px 20px;border-radius:22px;overflow:hidden}
+.navin .prog{position:absolute;left:0;bottom:0;height:2.5px;width:calc(var(--p,0)*100%);background:var(--leaf);border-radius:2px}
+.logo{display:flex;align-items:center;flex:none}
+.logo img{height:34px;width:auto;display:block}
+.nav nav{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;padding:9px 13px;border-radius:11px;color:var(--ink);transition:background .2s}
+.nav nav a.l:hover,.nav nav a.l.on{background:rgba(0,63,42,.08);color:var(--forest)}
+.nav .acts{display:flex;gap:8px;margin-left:10px}
+#menuBtn{display:none;margin-left:auto;background:rgba(255,255,255,.7);border:1.5px solid var(--forest);border-radius:12px;padding:9px;cursor:pointer;color:var(--forest)}
+@media(max-width:1060px){
+  #menuBtn{display:grid}
+  .nav nav{display:none}
+  .nav nav.open{display:flex;position:absolute;left:14px;right:14px;top:70px;flex-direction:column;align-items:stretch;padding:14px;border-radius:22px;margin:0;
+    background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);border:1px solid #fff;box-shadow:0 30px 60px -30px rgba(0,63,42,.5)}
+  .nav nav.open a.l{padding:13px}
+  .nav nav.open .acts{margin:8px 0 0;flex-direction:column}
+  .navin{overflow:visible}
+}
+
+/* hero */
+.hero{padding:132px 0 70px;text-align:center}
+.hero .wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:99px;font-weight:600;font-size:.88rem;color:var(--forest)}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--leaf);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(91,158,66,.6)}70%{box-shadow:0 0 0 10px rgba(91,158,66,0)}100%{box-shadow:0 0 0 0 rgba(91,158,66,0)}}
+.hero h1{max-width:17ch;font-size:clamp(2.4rem,5.6vw,4.5rem)}
+.hero h1 em{font-style:normal;color:var(--leaf)}
+.hero .lede{max-width:56ch;font-size:1.25rem}
+.by{font-size:.92rem;color:var(--muted);font-weight:500}
+.heroin>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.heroin>*:nth-child(2){animation-delay:.08s}.heroin>*:nth-child(3){animation-delay:.16s}.heroin>*:nth-child(4){animation-delay:.24s}.heroin>*:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+
+.scene3d{position:relative;width:100%;max-width:1120px;height:540px;margin-top:20px;perspective:1600px;text-align:left}
+.layer{position:absolute;transform:translate3d(calc(var(--px,0)*var(--dx,0)*1px),calc(var(--py,0)*var(--dy,0)*1px),0) rotateX(calc(var(--py,0)*-3deg)) rotateY(calc(var(--px,0)*4deg));transition:transform .25s ease-out}
+.bob{animation:bob 7s ease-in-out infinite alternate}
+.bob.b2{animation-duration:9s;animation-delay:-3s}.bob.b3{animation-duration:8s;animation-delay:-5s}
+@keyframes bob{from{transform:translateY(-8px)}to{transform:translateY(10px)}}
+.l-main{left:50%;top:10px;width:540px;margin-left:-270px;--dx:10;--dy:8;z-index:2}
+.l-doc{left:0;top:70px;width:320px;--dx:-26;--dy:-18;z-index:1}
+.l-rep{right:0;top:120px;width:290px;--dx:30;--dy:22;z-index:3}
+.l-badge{left:3%;bottom:0;--dx:-16;--dy:26;z-index:4}
+.app{padding:22px;display:flex;flex-direction:column;gap:16px}
+.app .bar{display:flex;gap:10px;flex-wrap:wrap}
+.app hr{border:0;border-top:1px solid var(--hair);margin:0;width:100%}
+.rowi{display:flex;align-items:center;gap:14px}
+.rowi .t{flex:1;min-width:0}
+.rowi .t b{display:block;font-size:.98rem;color:var(--ink)}
+.rowi .t span{font-size:.84rem;color:var(--muted)}
+.rowi .ic{color:var(--forest)}
+.paper{padding:20px;font-size:.8rem;line-height:1.5;color:#2b4039;display:flex;flex-direction:column;gap:8px}
+.paper small{font-weight:700;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.paper .reg{font-weight:700;color:var(--forest);font-size:.82rem}
+.paper p{padding:8px 10px;border-radius:10px;border-left:3px solid transparent}
+.paper p.hit{background:var(--st-no-bg);border-left-color:var(--leaf)}
+.paper p.scan{animation:scan 10s infinite}
+.paper p.scan.s2{animation-delay:3.3s}.paper p.scan.s3{animation-delay:6.6s}
+@keyframes scan{0%,2%{background:transparent;border-left-color:transparent}6%,30%{background:var(--st-no-bg);border-left-color:var(--leaf)}35%,100%{background:transparent;border-left-color:transparent}}
+.rep{padding:20px;display:flex;flex-direction:column;gap:12px}
+.rep small{font-weight:700;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.rep strong{font-size:1.05rem;line-height:1.2;color:var(--forest)}
+.cov{background:rgba(255,255,255,.75);border:1px solid var(--hair);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;font-size:.86rem;line-height:1.4;color:var(--ink)}
+@media(max-width:900px){
+  .hero{padding-top:120px}
+  .scene3d{height:auto;display:flex;flex-direction:column;gap:16px;perspective:none}
+  .layer{position:static;width:100%!important;margin:0!important;transform:none}
+  .bob{animation:none}
+}
+
+/* film */
+.film{border-radius:34px;overflow:hidden;min-width:0}
+.vis>*{max-width:100%}
+.stage{display:grid;grid-template-columns:minmax(0,1fr);min-height:460px;touch-action:pan-y}
+.scene{grid-area:1/1;min-width:0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:center;padding:52px 56px;opacity:0;visibility:hidden;transition:opacity .6s,visibility .6s}
+.scene.active{opacity:1;visibility:visible}
+.cap{display:flex;flex-direction:column;gap:16px}
+.cap .n{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.78rem;letter-spacing:.1em;color:#a8dc8f}
+.cap .n .ic{width:20px;height:20px}
+.cap h3{font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+.cap p{color:var(--on-deep-muted);max-width:36ch}
+.vis{display:flex;align-items:center;justify-content:center;min-height:320px;position:relative}
+@keyframes up{from{opacity:0;transform:translateY(22px)}}
+@keyframes pop{from{opacity:0;transform:scale(.86)}}
+@keyframes draw{from{stroke-dashoffset:1}}
+@keyframes fadein{from{opacity:0}}
+.scene.active .cap>*{animation:up .7s both cubic-bezier(.2,.8,.2,1)}
+.scene.active .cap>*:nth-child(2){animation-delay:.12s}.scene.active .cap>*:nth-child(3){animation-delay:.24s}
+.plan{width:100%;max-width:480px}
+.plan .parcel{stroke:rgba(255,255,255,.16);fill:none}
+.plan .house{stroke:#fff;fill:none;stroke-width:3;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1}
+.plan .pane{fill:var(--leaf)}
+.plan .tick{stroke:var(--orange);fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1}
+.plan .edge{stroke:#e2574c;fill:rgba(226,87,76,.1);stroke-width:3;stroke-dasharray:1}
+.plan text{font:600 10px var(--font);fill:var(--on-deep-muted);letter-spacing:.08em}
+.scene.active .plan .edge{animation:draw 1.6s .3s both ease-in-out}
+.scene.active .plan .house{animation:draw 1.5s 1.4s both ease-out}
+.scene.active .plan .pane{animation:pop .4s both;transform-box:fill-box;transform-origin:center}
+.scene.active .plan .pane:nth-of-type(1){animation-delay:2.7s}.scene.active .plan .pane:nth-of-type(2){animation-delay:2.8s}
+.scene.active .plan .pane:nth-of-type(3){animation-delay:2.9s}.scene.active .plan .pane:nth-of-type(4){animation-delay:3s}
+.scene.active .plan .tick{animation:draw .6s 3.3s both ease-out}
+.scene.active .plan .tag{animation:fadein .5s 2s both}
+.fan{position:relative;width:360px;height:310px;max-width:100%}
+.sheet{position:absolute;width:196px;height:250px;background:rgba(255,255,255,.94);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 30px 50px -24px rgba(0,0,0,.7),inset 0 1px 0 #fff;color:var(--ink)}
+.sheet small{font-weight:700;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet strong{font-size:.9rem;line-height:1.2;color:var(--forest)}
+.sheet u,.reader u{display:block;height:6px;border-radius:3px;background:#dbe7dc;text-decoration:none}
+.sheet u.s,.reader u.s{width:58%}.sheet u.m,.reader u.m{width:82%}
+.sheet:nth-child(1){left:0;top:36px;transform:rotate(-9deg)}
+.sheet:nth-child(2){left:82px;top:14px;transform:rotate(-1deg)}
+.sheet:nth-child(3){left:164px;top:42px;transform:rotate(8deg)}
+@keyframes drop1{from{opacity:0;transform:translate(-90px,-70px) rotate(-26deg)}}
+@keyframes drop2{from{opacity:0;transform:translate(0,-100px) rotate(8deg)}}
+@keyframes drop3{from{opacity:0;transform:translate(90px,-70px) rotate(26deg)}}
+.scene.active .sheet:nth-child(1){animation:drop1 .8s .3s both cubic-bezier(.2,.8,.2,1)}
+.scene.active .sheet:nth-child(2){animation:drop2 .8s .8s both cubic-bezier(.2,.8,.2,1)}
+.scene.active .sheet:nth-child(3){animation:drop3 .8s 1.3s both cubic-bezier(.2,.8,.2,1)}
+.miniplan{flex:1;border:1px solid #dbe7dc;border-radius:8px;position:relative;background:linear-gradient(#e9f1e9 1px,transparent 1px) 0 0/100% 22px,linear-gradient(90deg,#e9f1e9 1px,transparent 1px) 0 0/22px 100%}
+.miniplan::after{content:"";position:absolute;left:28%;top:22%;width:42%;height:52%;border:2.5px solid #e2574c}
+.reader{width:400px;max-width:100%;background:rgba(255,255,255,.95);border-radius:22px;padding:24px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:11px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
+.reader small{font-weight:700;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.reader u{height:8px;border-radius:4px}
+.reader u.h{background:#a9d596;box-shadow:-12px 0 0 -2px var(--leaf)}
+.reader .beam{position:absolute;left:0;right:0;top:0;height:70px;background:linear-gradient(rgba(91,158,66,0),rgba(91,158,66,.28));border-bottom:2px solid var(--leaf);transform:translateY(280px);opacity:0}
+@keyframes beam{from{transform:translateY(-70px);opacity:1}to{transform:translateY(280px);opacity:1}}
+@keyframes mark{from{background:#dbe7dc;box-shadow:none}}
+.scene.active .reader .beam{animation:beam 3.2s .4s both linear}
+.scene.active .reader u.h{animation:mark .4s both}
+.scene.active .reader u.h1{animation-delay:1.1s}.scene.active .reader u.h2{animation-delay:2s}.scene.active .reader u.h3{animation-delay:2.9s}
+.outs{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:480px}
+.ocard{border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.ocard strong{font-size:1rem;color:#fff}
+.ocard span{font-size:.84rem;color:var(--on-deep-muted);line-height:1.4}
+.ocard .ic{color:#a8dc8f}.ocard .ic.w{color:var(--orange)}
+.scene.active .ocard{animation:pop .6s both cubic-bezier(.2,.9,.3,1.3)}
+.scene.active .ocard:nth-child(1){animation-delay:.3s}.scene.active .ocard:nth-child(2){animation-delay:.7s}
+.scene.active .ocard:nth-child(3){animation-delay:1.1s}.scene.active .ocard:nth-child(4){animation-delay:1.5s}
+.approve{width:420px;max-width:100%;display:flex;flex-direction:column;gap:14px}
+.apcard{background:rgba(255,255,255,.95);color:var(--ink);border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700;font-size:.95rem}
+.apcard .ok{display:inline-flex;gap:6px;align-items:center;background:var(--forest);color:#fff;border-radius:10px;padding:8px 12px;font-size:.82rem;white-space:nowrap}
+.apcard .ok .ic{width:16px;height:16px}
+.trail{list-style:none;margin:0;padding:18px 20px;border-radius:20px;display:flex;flex-direction:column;gap:12px;font-size:.86rem}
+.trail li{display:flex;gap:14px;align-items:baseline}
+.trail li b{font-variant-numeric:tabular-nums;font-weight:700;flex:none}
+.deep .trail li span{color:var(--on-deep-muted)}
+.scene.active .apcard{animation:up .6s .3s both}
+.scene.active .apcard .ok{animation:pop .5s 1.9s both}
+.scene.active .trail li{animation:up .45s both}
+.scene.active .trail li:nth-child(1){animation-delay:.8s}.scene.active .trail li:nth-child(2){animation-delay:1.3s}
+.scene.active .trail li:nth-child(3){animation-delay:2.2s}.scene.active .trail li:nth-child(4){animation-delay:2.7s}.scene.active .trail li:nth-child(5){animation-delay:3.3s}
+.phone{width:280px;max-width:100%;background:rgba(255,255,255,.96);color:var(--ink);border-radius:34px;border:7px solid #062218;padding:22px 16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8)}
+.phone small{font-weight:700;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.phone strong{font-size:1.12rem;line-height:1.2;color:var(--forest)}
+.scene.active .phone{animation:up .7s .2s both}
+.scene.active .phone .cov{animation:up .5s both}
+.scene.active .phone .cov:nth-of-type(1){animation-delay:.9s}.scene.active .phone .cov:nth-of-type(2){animation-delay:1.5s}
+.film .glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.1)}
+.film .glass::after{display:none}
+.chapters{display:grid;grid-template-columns:auto auto auto repeat(5,1fr);gap:6px;padding:14px 18px;border-top:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18)}
+.chap,#playBtn,.navb{background:none;border:0;color:var(--on-deep-muted);font:600 .8rem var(--font);text-align:left;padding:9px;cursor:pointer;border-radius:12px;display:flex;flex-direction:column;gap:9px}
+.chap:hover,#playBtn:hover,.navb:hover{background:rgba(255,255,255,.08)}
+.chap .bar{height:4px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden;display:block}
+.chap .bar i{display:block;height:100%;width:0;background:#a8dc8f;border-radius:2px}
+.chap.done .bar i{width:100%;background:rgba(255,255,255,.45)}
+.chap{min-width:0}
+.chap.active{color:#fff}
+.chap.active .bar i{width:100%;animation:fill 6.5s linear both}
+.film.paused .chap.active .bar i{animation-play-state:paused}
+@keyframes fill{from{width:0}}
+#playBtn,.navb{align-items:center;justify-content:center;width:44px;border:1px solid rgba(255,255,255,.22);color:#fff}
+.navb.prev .ic{transform:rotate(180deg)}
+@media(max-width:860px){
+  .stage{min-height:0}
+  .scene{grid-template-columns:minmax(0,1fr);padding:30px 22px;gap:22px;align-content:start}
+  .fan{zoom:.76}
+  .cap p{max-width:none}
+  .vis{min-height:0}
+  .chap .t{display:none}
+}
+
+/* grids */
+.grid{display:grid;gap:20px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1020px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:640px){.g4,.g2{grid-template-columns:1fr}}
+.card{padding:28px;display:flex;flex-direction:column;gap:14px}
+.card p{color:var(--muted);font-size:.97rem}
+.deep .card p{color:var(--on-deep-muted)}
+.card .num{font-weight:800;font-size:.8rem;letter-spacing:.1em;color:#a8dc8f}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:940px){.split{grid-template-columns:1fr;gap:40px}}
+.stack{display:flex;flex-direction:column;gap:20px}
+ul.pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+ul.pts li{display:flex;gap:14px;align-items:flex-start}
+ul.pts .ic{color:var(--leaf);margin-top:2px}
+.deep ul.pts .ic{color:#a8dc8f}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s;margin-bottom:56px}
+.step{padding:24px;display:flex;flex-direction:column;gap:12px}
+.step .top{display:flex;justify-content:space-between;align-items:center}
+.step .top::after{counter-increment:s;content:"0" counter(s);font-weight:800;font-size:.84rem;color:var(--leaf);letter-spacing:.06em}
+.step p{color:var(--muted);font-size:.94rem}
+@media(max-width:1020px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.steps{grid-template-columns:1fr}}
+
+/* workspace */
+.ws{overflow:hidden;border-radius:30px}
+.wsbar{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--hair);font-size:.9rem;flex-wrap:wrap}
+.wsbar .dots{display:flex;gap:6px}.wsbar .dots i{width:11px;height:11px;border-radius:50%;background:rgba(0,63,42,.16)}
+.wsbar .matter{font-size:.82rem;color:var(--muted)}
+.wsbar .st{margin-left:0}
+.wsbody{display:grid;grid-template-columns:1.05fr 1fr}
+.wsdoc{border-right:1px solid var(--hair);max-height:540px;overflow:auto;padding:10px;background:rgba(255,255,255,.5)}
+.wsdoc .paper{font-size:.86rem}
+.wsdoc .paper p{display:flex;gap:10px;transition:background .3s,border-color .3s}
+.wsdoc .paper p b{color:var(--muted);flex:none}
+.wsout{display:flex;flex-direction:column;min-width:0}
+.tabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--hair);overflow-x:auto}
+.tabs button{flex:none;background:none;border:0;border-radius:11px;padding:10px 14px;font:600 .88rem var(--font);color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{color:#fff;background:var(--forest)}
+.panel{display:none;padding:14px;flex-direction:column;gap:10px;max-height:480px;overflow:auto}
+.panel.on{display:flex}
+.item{text-align:left;background:rgba(255,255,255,.8);border:1.5px solid transparent;box-shadow:0 0 0 1px var(--hair);border-radius:16px;padding:14px 16px;font:400 .93rem/1.45 var(--font);color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:border-color .15s,transform .15s}
+.item:hover{transform:translateX(3px)}
+.item.sel{border-color:var(--forest);background:#fff}
+.item .ref{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.78rem;color:var(--st-no)}
+.item .ref .ic{width:14px;height:14px}
+.item em{font-style:normal;color:var(--muted);font-size:.87rem}
+.sample{font-size:.82rem;color:var(--muted);margin-top:16px;text-align:center}
+@media(max-width:880px){.wsbody{grid-template-columns:1fr}.wsdoc{border-right:0;border-bottom:1px solid var(--hair);max-height:300px}}
+
+/* who */
+.seg{display:inline-flex;padding:6px;border-radius:18px;gap:4px;margin-bottom:36px}
+.seg button{border:0;background:none;font:700 1rem var(--font);color:var(--forest);padding:12px 22px;border-radius:13px;cursor:pointer;transition:background .25s,color .25s}
+.seg button[aria-selected="true"]{background:var(--forest);color:#fff;box-shadow:0 10px 20px -10px rgba(0,63,42,.7)}
+.who{display:none}.who.on{display:block;animation:up .6s both cubic-bezier(.2,.8,.2,1)}
+.who .intro{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:32px}
+@media(max-width:900px){.who .intro{grid-template-columns:1fr}}
+.callout{padding:30px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;margin-top:20px}
+@media(max-width:760px){.callout{grid-template-columns:1fr}}
+.fine{font-size:.86rem;color:var(--muted);max-width:80ch;margin-top:18px}
+
+/* pricing */
+.price-hero{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-bottom:44px}
+@media(max-width:820px){.price-hero{grid-template-columns:1fr;gap:20px}}
+.bignum{font-weight:800;font-size:clamp(4rem,11vw,8rem);line-height:.9;letter-spacing:-.06em;color:var(--forest);font-variant-numeric:tabular-nums}
+.bignum sup{font-size:.28em;vertical-align:top;position:relative;top:.5em;color:var(--leaf)}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+@media(max-width:1080px){.tiers{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.tiers{grid-template-columns:1fr}}
+.tier{padding:26px;display:flex;flex-direction:column;gap:16px}
+.tier .who-for{font-size:.9rem;color:var(--muted);min-height:2.9em}
+.tier .price{font-weight:800;font-size:2.8rem;line-height:1;letter-spacing:-.04em;color:var(--forest);font-variant-numeric:tabular-nums}
+.tier .price small{display:block;font-weight:500;font-size:.86rem;color:var(--muted);letter-spacing:0;margin-top:8px}
+.tier dl{margin:0;display:flex;flex-direction:column;gap:9px;font-size:.92rem;border-top:1px solid var(--hair);padding-top:16px}
+.tier dl div{display:flex;justify-content:space-between;gap:10px}
+.tier dt{color:var(--muted)}.tier dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.tier .btn{margin-top:auto}
+.tier.best{background:linear-gradient(150deg,#0b6a47,var(--forest) 60%);border-color:rgba(255,255,255,.25);color:var(--on-deep);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.3),0 40px 70px -30px rgba(0,63,42,.8)}
+.tier.best h3,.tier.best .price{color:#fff}
+.tier.best .who-for,.tier.best dt,.tier.best .price small{color:var(--on-deep-muted)}
+.tier.best dl{border-color:rgba(255,255,255,.18)}
+.tier.best .flag{position:absolute;top:-13px;left:24px;background:var(--leaf);color:#fff;font-weight:700;font-size:.76rem;padding:5px 12px;border-radius:99px;box-shadow:0 8px 16px -8px rgba(0,0,0,.5)}
+.tier.best .btn{background:#fff;color:var(--forest);border-color:#fff}
+.bonus{background:rgba(255,255,255,.1);border:1px dashed #a8dc8f;border-radius:14px;padding:12px 14px;font-size:.89rem;color:#fff}
+.notes{font-size:.86rem;color:var(--muted);display:flex;flex-direction:column;gap:4px;margin:24px 0 44px}
+
+/* trusted by */
+.trusted{padding:10px 0 70px}
+.trusted[hidden]{display:none}
+.trusted .wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.firms{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;list-style:none;margin:0;padding:0}
+.firms li{padding:14px 26px;border-radius:16px;font-weight:700;color:var(--forest);font-size:1.02rem}
+.firms li.slot{background:none;border:1.5px dashed rgba(0,63,42,.3);box-shadow:none;color:var(--muted);font-weight:500;-webkit-backdrop-filter:none;backdrop-filter:none}
+/* pricing extras */
+.perks{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 36px;padding:0;list-style:none}
+.perks li{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:99px;font-weight:700;font-size:.95rem;color:var(--forest)}
+.perks .ic{color:var(--leaf);width:20px;height:20px}
+.tier ul.feat{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--hair);display:flex;flex-direction:column;gap:11px;font-size:.93rem}
+.tier ul.feat li{display:flex;gap:10px;align-items:flex-start}
+.tier ul.feat .ic{width:18px;height:18px;margin-top:3px;color:var(--leaf)}
+.tier.best ul.feat{border-color:rgba(255,255,255,.18)}
+.tier.best ul.feat .ic{color:#a8dc8f}
+.tier .tag{font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
+.tier.best .tag{color:#a8dc8f}
+.tier .who-for{min-height:4.4em}
+.textlink{color:var(--forest);font-weight:700}
+
+/* form */
+form.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:32px}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:.9rem;color:var(--ink)}
+input,select,textarea{font:400 1rem var(--font);padding:13px 15px;border:1.5px solid rgba(0,63,42,.18);border-radius:13px;background:rgba(255,255,255,.85);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 4px rgba(91,158,66,.2)}
+label.chk{flex-direction:row;align-items:center;gap:10px;font-weight:500}
+label.chk input{width:19px;height:19px;flex:none;accent-color:var(--forest)}
+.msg{display:none;padding:13px 16px;border-radius:13px;font-size:.93rem;font-weight:500;background:var(--st-chk-bg);color:var(--st-chk)}
+.msg.show{display:block}.msg.ok{background:var(--st-no-bg);color:var(--st-no)}.msg.warn{background:var(--st-still-bg);color:var(--st-still)}
+@media(max-width:640px){form.contact{grid-template-columns:1fr;padding:22px}}
+
+/* login */
+.veil{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:20px;background:rgba(0,40,27,.35);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+.veil.open{display:grid;animation:fadein .3s both}
+.login{width:100%;max-width:420px;padding:34px;display:flex;flex-direction:column;gap:18px;background:linear-gradient(140deg,rgba(255,255,255,.92),rgba(255,255,255,.7))}
+.veil.open .login{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) both}
+.login img{height:38px;width:auto;align-self:flex-start}
+.login h2{font-size:1.6rem}
+.login .x{position:absolute;top:16px;right:16px;background:rgba(0,63,42,.08);border:0;border-radius:11px;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;color:var(--forest)}
+.login .alt{font-size:.9rem;color:var(--muted)}
+.login .alt a{color:var(--forest);font-weight:700}
+
+/* cta + footer */
+.cta{padding:60px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.cta h2{max-width:18ch}
+@media(max-width:640px){.cta{padding:34px 26px}section{padding:76px 0}.deep{border-radius:30px;margin:0 8px}}
+footer{margin:0 14px 14px;border-radius:44px;background:var(--forest);color:var(--on-deep-muted);padding:56px 0 34px;font-size:.93rem}
+footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+footer .lg{display:inline-flex;background:#fff;border-radius:16px;padding:12px 16px;align-self:flex-start}
+footer .lg img{height:32px;width:auto;display:block}
+footer h4{font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px;color:#a8dc8f}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+footer a,footer button.fl{text-decoration:none;color:var(--on-deep);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
+footer a:hover,footer button.fl:hover{text-decoration:underline}
+footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;font-size:.83rem}
+footer [hidden]{display:none}
+@media(max-width:820px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){footer .wrap{grid-template-columns:1fr}}
+
+/* legal page */
+.legaldoc{display:none;padding:130px 0 80px}
+.legaldoc.on{display:block}
+body.legal main{display:none}
+.legalbox{max-width:860px;margin:0 auto;padding:48px 52px}
+.legalbox h1{font-size:clamp(2rem,4.4vw,3rem);margin-bottom:10px}
+.legalbox h2{font-size:1.35rem;margin:34px 0 10px}
+.legalbox p,.legalbox li{color:var(--ink);font-size:1rem;max-width:70ch}
+.legalbox p{margin:0 0 12px}
+.legalbox ul{margin:0 0 12px;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.legalbox a{color:var(--forest);font-weight:600}
+.legalbox .meta{color:var(--muted);font-size:.92rem}
+.ph{background:var(--st-still-bg);color:var(--st-still);padding:1px 7px;border-radius:7px;font-weight:600;white-space:nowrap}
+footer .ph{white-space:normal}
+.back{display:inline-flex;gap:8px;align-items:center;font-weight:700;color:var(--forest);text-decoration:none;margin-bottom:22px}
+.back .ic{transform:rotate(180deg);width:18px;height:18px}
+.consent{font-size:.84rem;color:var(--muted);font-weight:400}
+.consent a{color:var(--forest);font-weight:600}
+@media(max-width:640px){.legalbox{padding:30px 22px}}
+
+/* cookie banner */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:560px;margin:0 auto;padding:20px 22px;display:flex;flex-direction:column;gap:14px;font-size:.93rem;background:linear-gradient(140deg,rgba(255,255,255,.95),rgba(255,255,255,.82))}
+.cookie[hidden]{display:none}
+.cookie a{color:var(--forest);font-weight:600}
+
+/* scroll reveal: only armed by script, so content is visible without it */
+.js-rv .rv{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.js-rv .rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 9h6M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></symbol>
+  <symbol id="i-token" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8"/></symbol>
+  <symbol id="i-approve" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3M12 15v.01"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 6v7a3 3 0 003 3h7M15 12l4 4-4 4"/></symbol>
+</defs></svg>
+
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header class="nav">
+  <div class="navin glass">
+    <a class="logo" href="#top" aria-label="Conv-AI home"><img src="/assets/logo.png" alt="Conv-AI"></a>
+    <button id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <nav id="mainNav" aria-label="Main">
+      <a class="l" href="#how-it-works">How it works</a>
+      <a class="l" href="#platform">Platform</a>
+      <a class="l" href="#who">Who it's for</a>
+      <a class="l" href="#pricing">Pricing</a>
+      <a class="l" href="#about">About</a>
+      <div class="acts">
+        <button class="btn out sm" data-login><svg class="ic"><use href="#i-lock"/></svg>Log in</button>
+        <a class="btn sm" href="#contact">Join the focus group</a>
+      </div>
+    </nav>
+    <span class="prog" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap heroin">
+    <span class="chip glass"><i></i>Piloting shortly. Opening to law firms after that.</span>
+    <h1>Clear property title intelligence, <em>designed for conveyancers, by conveyancers.</em></h1>
+    <p class="lede">Upload the title documents from the draft contract pack. Conv-AI returns a title summary, draft enquiries, risks to investigate and a plain English client report, every point linked to the clause it came from.</p>
+    <div class="row" style="justify-content:center">
+      <a class="btn" href="#contact">Join the focus group <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="btn out" href="#contact" data-demo>Schedule a demo</a>
+    </div>
+    <p class="by">Created by lawyers, for lawyers. <a class="textlink" href="#how-it-works">Watch the walkthrough</a></p>
+
+    <div class="scene3d" id="scene3d" aria-hidden="true">
+      <div class="layer l-doc"><div class="glass paper bob b2">
+        <small>Official copy · Sample</small>
+        <span class="reg">C: Charges Register</span>
+        <p class="scan">1 &nbsp;A Conveyance dated 2 June 1962 contains restrictive covenants.</p>
+        <p class="scan s2">2 &nbsp;REGISTERED CHARGE dated 22 August 2014.</p>
+        <span class="reg">B: Proprietorship Register</span>
+        <p class="scan s3">2 &nbsp;RESTRICTION: No disposition by a sole proprietor…</p>
+      </div></div>
+      <div class="layer l-main"><div class="glass app bob">
+        <div class="bar"><span class="btn sm">Run title report</span><span class="btn out sm">View summary</span><span class="reviewed" style="padding:9px 14px"><svg class="ic"><use href="#i-shield"/></svg>Solicitor-reviewed output</span></div>
+        <hr>
+        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Use covenant, 1962</b><span>No trade or business from the property</span></div><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
+        <hr>
+        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Building approval covenant, 1962</b><span>Enquiry raised on the rear extension</span></div><span class="st chk"><svg class="ic"><use href="#i-clock"/></svg>Being checked</span></div>
+        <hr>
+        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Registered charge, 2014</b><span>Redeemed on completion</span></div><span class="st no"><svg class="ic"><use href="#i-check"/></svg>No effect</span></div>
+        <hr>
+        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Road contribution covenant, 1962</b><span>Road since adopted</span></div><span class="st exp">Expired</span></div>
+      </div></div>
+      <div class="layer l-rep"><div class="glass rep bob b3">
+        <small>Client report</small><strong>What the title means for you</strong>
+        <div class="cov"><span>You must not run a trade or business from the house.</span><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
+        <div class="cov"><span>A rule about paying towards the road no longer applies.</span><span class="st exp">Expired</span></div>
+      </div></div>
+      <div class="layer l-badge"><div class="glass bob b2" style="padding:14px 18px;border-radius:18px;display:flex;gap:12px;align-items:center;font-weight:700;font-size:.92rem"><svg class="ic" style="color:var(--leaf)"><use href="#i-link"/></svg>Every point links to its source clause</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<section class="trusted" id="trustedSec">
+  <div class="wrap">
+    <p class="kicker">Trusted by</p>
+    <ul class="firms" id="firms"></ul>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="deep" id="how-it-works">
+  <div class="wrap">
+    <div class="head c rv">
+      <p class="kicker">A house purchase, the Conv-AI way</p>
+      <h2>From draft contract pack to a client who understands what they are buying.</h2>
+    </div>
+    <div class="film glass rv" id="film">
+      <div class="stage">
+        <div class="scene active">
+          <div class="cap"><span class="n"><svg class="ic"><use href="#i-doc"/></svg>01 / DOCUMENTS IN</span><h3>The draft contract pack arrives.</h3><p>Official copies, title plan, filed deeds, old conveyances and leases. Drop them into Conv-AI as they are.</p></div>
+          <div class="vis"><div class="fan">
+            <div class="sheet"><small>Filed deed</small><strong>Conveyance, 2 June 1962</strong><u></u><u class="m"></u><u></u><u class="s"></u><u></u><u class="m"></u><u></u><u class="s"></u></div>
+            <div class="sheet"><small>Official copy</small><strong>Register of title</strong><u></u><u class="m"></u><u class="s"></u><u></u><u></u><u class="m"></u><u></u><u class="s"></u></div>
+            <div class="sheet"><small>Official copy</small><strong>Title plan</strong><div class="miniplan"></div></div>
+          </div></div>
+        </div>
+        <div class="scene">
+          <div class="cap"><span class="n"><svg class="ic"><use href="#i-search"/></svg>02 / TITLE REVIEW</span><h3>Conv-AI reads every entry.</h3><p>Scans become text you can copy. Covenants, restrictions, charges and rights are tied to their clause, and anything missing is flagged.</p></div>
+          <div class="vis"><div class="reader">
+            <small>C: Charges Register</small>
+            <u></u><u class="m"></u><u class="h h1 m"></u><u></u><u class="s"></u><u class="h h2"></u><u class="m"></u><u></u><u class="s"></u><u class="h h3 m"></u><u></u><u class="s"></u>
+            <div class="beam"></div>
+          </div></div>
+        </div>
+        <div class="scene">
+          <div class="cap"><span class="n"><svg class="ic"><use href="#i-token"/></svg>03 / OUTPUTS</span><h3>Four working documents come back.</h3><p>Each one is a draft for the fee earner to check, with the source one click away.</p></div>
+          <div class="vis"><div class="outs">
+            <div class="ocard glass"><svg class="ic"><use href="#i-doc"/></svg><strong>Title summary</strong><span>Class of title, proprietors, burdens and benefits.</span></div>
+            <div class="ocard glass"><svg class="ic"><use href="#i-search"/></svg><strong>Draft enquiries</strong><span>Ready to raise. Doubles as your checklist.</span></div>
+            <div class="ocard glass"><svg class="ic w"><use href="#i-alert"/></svg><strong>Risks to investigate</strong><span>Each with possible solutions.</span></div>
+            <div class="ocard glass"><svg class="ic"><use href="#i-info"/></svg><strong>Client report</strong><span>Plain English, covenant by covenant.</span></div>
+          </div></div>
+        </div>
+        <div class="scene">
+          <div class="cap"><span class="n"><svg class="ic"><use href="#i-approve"/></svg>04 / SOLICITOR APPROVAL</span><h3>A solicitor reviews, edits and approves.</h3><p>Nothing reaches the client until a solicitor releases it. Then one click saves the email as a draft in Outlook.</p></div>
+          <div class="vis"><div class="approve">
+            <div class="apcard"><span>Client report · 14 Alder Row</span><span class="ok"><svg class="ic"><use href="#i-check"/></svg>Approved</span></div>
+            <ul class="trail glass">
+              <li><b>10:02</b><span>Documents uploaded (3)</span></li>
+              <li><b>10:04</b><span>Draft outputs generated</span></li>
+              <li><b>10:31</b><span>Enquiry 2 edited by reviewing solicitor</span></li>
+              <li><b>10:38</b><span>Client report approved and released</span></li>
+              <li><b>10:39</b><span>Email saved to Outlook drafts</span></li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="scene">
+          <div class="cap"><span class="n"><svg class="ic"><use href="#i-shield"/></svg>05 / INFORMED CLIENT</span><h3>The buyer reads it and gets it.</h3><p>Each covenant explained, with whether it still applies. You get the time back for work that needs a lawyer's judgement.</p></div>
+          <div class="vis"><div class="phone">
+            <small>Your title report</small><strong>What the title means for you</strong>
+            <div class="cov"><span>You must not run a trade or business from the house.</span><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
+            <div class="cov"><span>A rule about paying towards the road no longer applies.</span><span class="st exp">Expired</span></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="chapters">
+        <button class="navb prev" id="prevBtn" aria-label="Previous step"><svg class="ic"><use href="#i-arrow"/></svg></button>
+        <button id="playBtn" aria-label="Pause the walkthrough"><svg class="ic"><use id="playIc" href="#i-pause"/></svg></button>
+        <button class="navb" id="nextBtn" aria-label="Next step"><svg class="ic"><use href="#i-arrow"/></svg></button>
+        <button class="chap active"><span class="bar"><i></i></span><span class="t">Documents</span></button>
+        <button class="chap"><span class="bar"><i></i></span><span class="t">Review</span></button>
+        <button class="chap"><span class="bar"><i></i></span><span class="t">Outputs</span></button>
+        <button class="chap"><span class="bar"><i></i></span><span class="t">Approval</span></button>
+        <button class="chap"><span class="bar"><i></i></span><span class="t">Client</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTPUTS -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">What you get back</p>
+      <h2>One upload. Four documents you would otherwise write by hand.</h2>
+      <p class="lede">Title review is one of the most crucial and most time consuming parts of a conveyancing matter. Conv-AI is built to support conveyancers with exactly that.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card glass lift rv" style="--i:0"><span class="tile"><svg class="ic"><use href="#i-doc"/></svg></span><h3>A clear title summary</h3><p>The register and filed documents condensed into the facts a fee earner needs first.</p></div>
+      <div class="card glass lift rv" style="--i:1"><span class="tile"><svg class="ic"><use href="#i-search"/></svg></span><h3>Draft enquiries</h3><p>Drafted from what the title shows. They double as a working checklist for the file.</p></div>
+      <div class="card glass lift rv" style="--i:2"><span class="tile warn"><svg class="ic"><use href="#i-alert"/></svg></span><h3>Risks to investigate</h3><p>Suggested risks flagged for your attention, each with possible solutions to consider.</p></div>
+      <div class="card glass lift rv" style="--i:3"><span class="tile"><svg class="ic"><use href="#i-info"/></svg></span><h3>Plain English client report</h3><p>Explains each covenant and whether it still applies. Use our format or your own house style.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">More than a summary</p>
+      <h2>Built around how a conveyancer works the file.</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card glass lift rv" style="--i:0"><span class="tile"><svg class="ic"><use href="#i-doc"/></svg></span><h3>Copy the exact wording</h3><p>Every scanned page is turned into real text you can select. Copy a clause straight into your enquiries or report. No more retyping, snipping or screenshotting.</p></div>
+      <div class="card glass lift rv" style="--i:1"><span class="tile warn"><svg class="ic"><use href="#i-alert"/></svg></span><h3>Shows what is not there</h3><p>Conv-AI reviews the title for what is in it and highlights what is missing, such as a document that has not been supplied or the lack of a right of way.</p></div>
+      <div class="card glass lift rv" style="--i:2"><span class="tile"><svg class="ic"><use href="#i-approve"/></svg></span><h3>Your report, your way</h3><p>Choose our summary report or our comprehensive report. Or give us your template and we will write it in your house style and your words.</p></div>
+      <div class="card glass lift rv" style="--i:0"><span class="tile"><svg class="ic"><use href="#i-check"/></svg></span><h3>The concise report, always</h3><p>You always get our concise report, even when you choose your house style report, so you have a quick reference on every matter.</p></div>
+      <div class="card glass lift rv" style="--i:1"><span class="tile"><svg class="ic"><use href="#i-arrow"/></svg></span><h3>Straight to your Outlook drafts</h3><p>No more bulk downloading reports. One click takes you to Outlook, where the email is saved in your drafts, ready to send.</p></div>
+      <div class="card glass lift rv" style="--i:2"><span class="tile"><svg class="ic"><use href="#i-link"/></svg></span><h3>Works alongside your CMS</h3><p>Conv-AI does not replace your case management system. It runs in tandem with it, with integration to be offered in the future.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section id="platform" style="padding-top:0">
+  <div class="wrap">
+    <div class="head c rv">
+      <p class="kicker">Inside the platform</p>
+      <h2>Click a point. See the clause.</h2>
+      <p class="lede">This is how a matter looks in Conv-AI. Choose any item on the right and the source entry lights up on the left, ready to copy word for word.</p>
+    </div>
+    <div class="steps">
+      <div class="step glass rv" style="--i:0"><div class="top"><span class="tile"><svg class="ic"><use href="#i-down"/></svg></span></div><h3>Upload</h3><p>Add the draft contract pack: official copies, title plan, filed deeds, conveyances and leases.</p></div>
+      <div class="step glass rv" style="--i:1"><div class="top"><span class="tile"><svg class="ic"><use href="#i-search"/></svg></span></div><h3>Conv-AI reads</h3><p>Every page becomes text you can copy. The outputs are drafted, each point linked to its source.</p></div>
+      <div class="step glass rv" style="--i:2"><div class="top"><span class="tile"><svg class="ic"><use href="#i-doc"/></svg></span></div><h3>You review</h3><p>Check each point against the highlighted clause. Edit anything you would word differently.</p></div>
+      <div class="step glass rv" style="--i:3"><div class="top"><span class="tile"><svg class="ic"><use href="#i-approve"/></svg></span></div><h3>Approve and send</h3><p>A solicitor approves the client report, then one click saves it as a draft in Outlook.</p></div>
+    </div>
+    <div class="ws glass rv">
+      <div class="wsbar"><span class="dots"><i></i><i></i><i></i></span><svg class="ic" style="color:var(--forest)"><use href="#i-home"/></svg><strong>14 Alder Row, Fernleigh</strong><span class="matter">Freehold · Title absolute · 3 documents</span><button class="btn out sm" id="copyBtn" type="button" style="margin-left:auto"><svg class="ic"><use href="#i-doc"/></svg><span>Copy exact wording</span></button><span class="st chk"><svg class="ic"><use href="#i-clock"/></svg>Awaiting solicitor approval</span></div>
+      <div class="wsbody">
+        <div class="wsdoc" id="wsdoc" tabindex="0" aria-label="Source document">
+          <div class="paper">
+            <small>Official copy of register of title · Sample</small>
+            <span class="reg">A: Property Register</span>
+            <p id="src-a1"><b>1</b><span>(12.03.1987) The Freehold land shown edged with red on the plan of the above title filed at the Registry and being 14 Alder Row, Fernleigh.</span></p>
+            <p id="src-a2"><b>2</b><span>The land has the benefit of a right of way on foot over the passageway tinted brown on the title plan.</span></p>
+            <span class="reg">B: Proprietorship Register</span>
+            <p id="src-b1"><b>1</b><span>(04.09.2014) PROPRIETOR: MARGARET ELLEN HOLT and DAVID HOLT of 14 Alder Row, Fernleigh. Title absolute.</span></p>
+            <p id="src-b2"><b>2</b><span>(04.09.2014) RESTRICTION: No disposition by a sole proprietor of the registered estate (except a trust corporation) under which capital money arises is to be registered unless authorised by an order of the court.</span></p>
+            <span class="reg">C: Charges Register</span>
+            <p id="src-c1"><b>1</b><span>A Conveyance of the land in this title dated 2 June 1962 contains the following covenants: (a) not to use the property for any trade or business; (b) not to erect any building or addition without the Vendor's prior written approval of plans; (c) to contribute to the cost of making up Alder Row until it is taken over by the local authority.</span></p>
+            <p id="src-c2"><b>2</b><span>(04.09.2014) REGISTERED CHARGE dated 22 August 2014.</span></p>
+            <p id="src-c3"><b>3</b><span>(04.09.2014) Proprietor: NORTHMOOR BUILDING SOCIETY of 1 Market Place, Fernleigh.</span></p>
+          </div>
+        </div>
+        <div class="wsout">
+          <div class="tabs" role="tablist">
+            <button role="tab" aria-selected="true" data-tab="sum" id="tab-sum">Title summary</button>
+            <button role="tab" aria-selected="false" data-tab="enq" id="tab-enq">Draft enquiries</button>
+            <button role="tab" aria-selected="false" data-tab="risk" id="tab-risk">Risks</button>
+            <button role="tab" aria-selected="false" data-tab="rep" id="tab-rep">Client report</button>
+          </div>
+          <div class="panel on" id="p-sum">
+            <button class="item" data-src="a1"><span>Freehold property registered with title absolute.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Property Register, entry 1</span></button>
+            <button class="item" data-src="b1"><span>Two registered proprietors, registered since September 2014.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Proprietorship Register, entry 1</span></button>
+            <button class="item" data-src="b2"><span>Joint proprietor restriction on the register. Both proprietors, or two trustees, will need to give a receipt.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Proprietorship Register, entry 2</span></button>
+            <button class="item" data-src="c1"><span>Subject to covenants in a 1962 conveyance covering use, building works and road costs.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="c2"><span>One registered charge in favour of a building society.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entries 2 and 3</span></button>
+          </div>
+          <div class="panel" id="p-enq">
+            <button class="item" data-src="c2"><span>Please confirm the registered charge dated 22 August 2014 will be redeemed on or before completion and provide the usual undertaking.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 2</span></button>
+            <button class="item" data-src="c1"><span>Has any building or addition been erected since 2 June 1962? If so, please supply evidence of the approval required by covenant (b).</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="a2"><span>Who maintains the passageway tinted brown, and has the seller contributed to its upkeep or been in any dispute about its use?</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Property Register, entry 2</span></button>
+            <button class="item" data-src="b2"><span>Please confirm both registered proprietors will execute the transfer.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Proprietorship Register, entry 2</span></button>
+          </div>
+          <div class="panel" id="p-risk">
+            <button class="item" data-src="c1"><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Investigate</span><span>A rear extension is visible on the plan. No approval under covenant (b) has been supplied.</span><em>Possible solutions: obtain evidence of approval, or consider restrictive covenant indemnity insurance.</em><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="c1"><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Raise with client</span><span>The use covenant may matter if the buyer intends to run a business from home.</span><em>Possible solution: confirm the client's intended use before exchange.</em><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="c1"><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Missing document</span><span>The plans approved under covenant (b) are referred to but are not in the pack.</span><em>Possible solution: request copies from the seller's conveyancer.</em><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="a2"><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Not in the title</span><span>There is no right of way for vehicles. The only right recorded over the passageway is on foot.</span><em>Possible solution: confirm how the client expects to use the passageway and raise an enquiry on upkeep.</em><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Property Register, entry 2</span></button>
+          </div>
+          <div class="panel" id="p-rep">
+            <button class="item" data-src="c1"><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span><span><strong>No trade or business.</strong> A rule from 1962 says the house must not be used to run a trade or business.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="c1"><span class="st chk"><svg class="ic"><use href="#i-clock"/></svg>Being checked</span><span><strong>Approval for building work.</strong> Extensions needed written approval of the plans. We are asking the seller about the existing extension.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+            <button class="item" data-src="c2"><span class="st no"><svg class="ic"><use href="#i-check"/></svg>No effect</span><span><strong>Seller's mortgage.</strong> The seller's lender has a charge over the house. It is paid off when you complete, so it will not affect you.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 2</span></button>
+            <button class="item" data-src="c1"><span class="st exp">Expired</span><span><strong>Road costs.</strong> Owners once had to pay towards making up the road. The council has since taken the road over, so this no longer applies.</span><span class="ref"><svg class="ic"><use href="#i-link"/></svg>Charges Register, entry 1</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="sample">Illustrative sample. The property, names and entries are fictional.</p>
+  </div>
+</section>
+
+<!-- LAWYER IN CHARGE -->
+<section class="deep">
+  <div class="wrap split">
+    <div class="stack rv">
+      <p class="kicker">Built for professional scrutiny</p>
+      <h2>The lawyer stays in charge.</h2>
+      <p class="lede">Conv-AI does the reading. The judgement, and the sign-off, stay with you.</p>
+      <ul class="pts">
+        <li><svg class="ic"><use href="#i-link"/></svg><span><strong>Source-linked.</strong> Every point links back to the source document, with the relevant clause highlighted.</span></li>
+        <li><svg class="ic"><use href="#i-approve"/></svg><span><strong>Solicitor approved.</strong> Every client report is reviewed and approved by a solicitor before release.</span></li>
+        <li><svg class="ic"><use href="#i-shield"/></svg><span><strong>Audited.</strong> A full audit trail records what was generated, edited and approved, and when.</span></li>
+      </ul>
+    </div>
+    <div class="approve rv" style="width:100%;max-width:520px;justify-self:end;--i:1">
+      <div class="apcard"><span>Client report · 14 Alder Row</span><span class="ok"><svg class="ic"><use href="#i-check"/></svg>Approved</span></div>
+      <ul class="trail glass">
+        <li><b>10:02</b><span>Documents uploaded (3)</span></li>
+        <li><b>10:04</b><span>Draft outputs generated</span></li>
+        <li><b>10:31</b><span>Enquiry 2 edited by reviewing solicitor</span></li>
+        <li><b>10:38</b><span>Client report approved and released</span></li>
+              <li><b>10:39</b><span>Email saved to Outlook drafts</span></li>
+      </ul>
+      <span class="reviewed" style="align-self:flex-start"><svg class="ic"><use href="#i-shield"/></svg>Solicitor-reviewed output</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who">
+  <div class="wrap">
+    <div class="head rv" style="margin-bottom:28px">
+      <p class="kicker">Who it's for</p>
+      <h2>Built for firms. Open to individuals.</h2>
+    </div>
+    <div class="seg glass rv" role="tablist" aria-label="Audience">
+      <button role="tab" aria-selected="true" data-who="firms" id="who-firms">Law firms</button>
+      <button role="tab" aria-selected="false" data-who="ind" id="who-ind">Individuals</button>
+    </div>
+
+    <div class="who on" id="w-firms">
+      <div class="intro">
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.12">Efficiency for your team, and an extension of it.</h3>
+        <p class="lede">Less time on routine review, more time for the work that needs a lawyer's judgement. Conv-AI supports your fee earners. It does not replace them.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-approve"/></svg></span><h3>An extension of your existing team</h3><p>Conv-AI takes on the routine reading so your people start from a draft, with every point one click from its source.</p></div>
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-search"/></svg></span><h3>Everyone sees the same summary</h3><p>When a client calls about a point in their report, anyone on your team can open the summary and see exactly where the client is referring to.</p></div>
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-link"/></svg></span><h3>Runs alongside your CMS</h3><p>It does not replace your existing case management system. Conv-AI runs in tandem with it, with integration to be offered in the future.</p></div>
+      </div>
+      <div class="callout glass">
+        <span class="tile"><svg class="ic"><use href="#i-token"/></svg></span>
+        <div><h3>Join the firms shaping the first release</h3><p style="color:var(--muted)">Focus group members get <span class="ph">XX</span> free tokens, early access during the pilot, a direct line to the conveyancers building it, and a chance to be one of our monthly highlighted firms.</p></div>
+        <a class="btn" href="#contact">Register your firm <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="who" id="w-ind">
+      <div class="intro">
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.12">Your legal title, without the legal jargon.</h3>
+        <p class="lede">A home is one of the biggest investments you will make in life. You get the same reports produced for solicitors, whether you are a consultant, employed, or a curious buyer.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-search"/></svg></span><h3>Consultants</h3><p>A drafted summary, enquiries and client report for each matter on your own caseload, so your time goes on the judgement calls.</p></div>
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-token"/></svg></span><h3>Employed conveyancers</h3><p>Run a title and compare the drafts with your own review, on your own terms.</p></div>
+        <div class="card glass lift"><span class="tile"><svg class="ic"><use href="#i-home"/></svg></span><h3>Curious buyers</h3><p>See each covenant on your title explained in plain English, including whether it still applies.</p></div>
+      </div>
+      <div class="callout glass">
+        <span class="tile"><svg class="ic"><use href="#i-home"/></svg></span>
+        <div><h3>One of the biggest investments of your life</h3><p style="color:var(--muted)">It is worth a nominal fee to get an overview of your legal title in simple terms that is easy to understand.</p></div>
+        <a class="btn" href="#contact">Get in touch <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="fine">A Conv-AI report helps you understand your title. If you are buying or selling, your own conveyancer remains responsible for advising you on the transaction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="price-hero rv">
+      <div><p class="kicker" style="margin-bottom:10px">Prices starting from</p><div class="bignum">£0.80<sup>*</sup></div><p style="font-weight:700;color:var(--forest);margin-top:10px">per review</p></div>
+      <div class="stack" style="gap:14px">
+        <p class="kicker">Pricing</p>
+        <h2>Pay by token. You're in control.</h2>
+        <p class="lede">One token covers one freehold legal title review. Buy what you need, when you need it.</p>
+      </div>
+    </div>
+    <ul class="perks rv">
+      <li class="glass"><svg class="ic"><use href="#i-check"/></svg>No minimum contract term</li>
+      <li class="glass"><svg class="ic"><use href="#i-check"/></svg>No minimum order</li>
+      <li class="glass"><svg class="ic"><use href="#i-check"/></svg>PAYG options available</li>
+    </ul>
+    <div class="tiers">
+      <div class="tier glass lift rv" style="--i:0">
+        <span class="tag">Pay as you go</span>
+        <h3>Individual</h3><p class="who-for">For curious buyers who just want a second opinion on their title.</p>
+        <ul class="feat">
+          <li><svg class="ic"><use href="#i-check"/></svg><span>A plain English, easy to understand summary sheet</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Buy a single review, with nothing to sign up to</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>We can source your title documents for you, at an additional cost</span></li>
+        </ul>
+        <a class="btn out" href="#contact">Get in touch</a>
+      </div>
+      <div class="tier glass lift rv" style="--i:1">
+        <span class="tag">Starter bundle</span>
+        <h3>Enterprise Lite</h3><p class="who-for">For consultants and small teams getting started.</p>
+        <ul class="feat">
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Title summary, draft enquiries, risks and client report on every matter</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Our reports or your own house style template</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>A smaller token bundle at a lower price per review than pay as you go</span></li>
+        </ul>
+        <a class="btn out" href="#contact">Get in touch</a>
+      </div>
+      <div class="tier glass lift rv" style="--i:2">
+        <span class="tag">Team bundle</span>
+        <h3>Enterprise</h3><p class="who-for">For established conveyancing departments.</p>
+        <ul class="feat">
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Everything in Enterprise Lite</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>A larger token bundle shared across your team</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>A lower price per review as your volume grows</span></li>
+        </ul>
+        <a class="btn out" href="#contact">Get in touch</a>
+      </div>
+      <div class="tier glass best lift rv" style="--i:3">
+        <span class="flag">Best value</span>
+        <span class="tag">Volume bundle</span>
+        <h3>Enterprise Max</h3><p class="who-for">For high volume firms and multi-office teams.</p>
+        <ul class="feat">
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Everything in Enterprise</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>1,000 tokens at our lowest price, £0.80 per review*</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bulk and enterprise discounts above 1,000</span></li>
+        </ul>
+        <div class="bonus"><strong>Special offer:</strong> we top you up with 50 extra tokens. That's 50 more freehold title reviews.</div>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="notes" style="margin-bottom:0">
+      <span>* £0.80 per review applies to the Enterprise Max package of 1,000 tokens.</span>
+      <span>Tokens are valid for 12 months from the date of purchase.</span>
+    </div>
+    <div class="row" style="margin-top:28px"><a class="btn" href="#contact" data-demo>Schedule a demo <svg class="ic"><use href="#i-arrow"/></svg></a><a class="btn out" href="#contact">Ask for a price list</a></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="deep" id="about">
+  <div class="wrap">
+    <div class="split" style="align-items:start;margin-bottom:56px">
+      <div class="stack rv">
+        <p class="kicker">About us</p>
+        <h2>We built the tool we wanted on our own files.</h2>
+      </div>
+      <div class="stack rv" style="--i:1;color:var(--on-deep-muted)">
+        <p>Conv-AI started with a familiar problem: a stack of official copies, a client waiting for an explanation, and not enough hours in the day. Official copies, filed deeds, old conveyances and leases all have to be read, checked and explained in a way the client understands.</p>
+        <p>We are practising conveyancers who have spent years doing exactly that, working with a product team that builds data platforms for regulated entities governed by various regulators including the FCA, SRA and CLC. The platform is built, and we are piloting shortly before opening to law firms.</p>
+      </div>
+    </div>
+    <div class="grid g4">
+      <div class="card glass lift rv" style="--i:0"><span class="num">01</span><h3>Show the source</h3><p>If a point cannot be traced to a clause, it does not belong in the output.</p></div>
+      <div class="card glass lift rv" style="--i:1"><span class="num">02</span><h3>Lawyer in the loop</h3><p>A solicitor reviews and approves every client report before release.</p></div>
+      <div class="card glass lift rv" style="--i:2"><span class="num">03</span><h3>Plain English</h3><p>A client report only works if the client can read it without a dictionary.</p></div>
+      <div class="card glass lift rv" style="--i:3"><span class="num">04</span><h3>Leave a trail</h3><p>Every generation, edit and approval is recorded in a full audit trail.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap split" style="align-items:start">
+    <div class="stack rv">
+      <p class="kicker">Get in touch</p>
+      <h2>Join the focus group or schedule a demo.</h2>
+      <p class="lede">Tell us a little about you and someone will be in touch. Focus group members see Conv-AI first and help decide what a working conveyancing team needs from it.</p>
+      <ul class="pts">
+        <li><svg class="ic"><use href="#i-token"/></svg><span><span class="ph">XX</span> free tokens when you join the focus group</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span>Early access during the pilot</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span>A direct line to the conveyancers building it</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span>A say in what we build next</span></li>
+      </ul>
+      <p style="color:var(--muted)">Already on the pilot? <button data-login style="background:none;border:0;padding:0;font:700 1rem var(--font);color:var(--forest);cursor:pointer;text-decoration:underline">Log in to the platform</button></p>
+    </div>
+    <form class="contact glass rv" id="contactForm" name="contact" method="POST" action="/api/contact" novalidate style="--i:1">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+      <label for="f-name">Full name<input id="f-name" name="name" autocomplete="name" required></label>
+      <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+      <label for="f-org">Firm or organisation<input id="f-org" name="organisation" autocomplete="organization"></label>
+      <label for="f-type">I am a<select id="f-type" name="type"><option>Law firm</option><option>Consultant conveyancer</option><option>Employed conveyancer</option><option>Home buyer</option><option>Something else</option></select></label>
+      <label class="full" for="f-vol">Roughly how many title reviews do you handle a month?<select id="f-vol" name="volume"><option>Not applicable</option><option>Under 25</option><option>25 to 100</option><option>100 to 500</option><option>Over 500</option></select></label>
+      <label class="full" for="f-msg">Anything you'd like us to know<textarea id="f-msg" name="message" rows="3"></textarea></label>
+      <label class="chk full" for="f-fg"><input id="f-fg" name="focus-group" type="checkbox" checked>I'd like to join the Conv-AI focus group</label>
+      <label class="chk full" for="f-demo"><input id="f-demo" name="demo" type="checkbox">I'd like to schedule a demo</label>
+      <p class="full consent">We use these details to respond to your enquiry. See our <a href="#privacy">privacy policy</a> and <a href="#terms">terms of use</a>.</p>
+      <div class="full"><button class="btn" type="submit" style="width:100%">Send <svg class="ic"><use href="#i-arrow"/></svg></button></div>
+      <div class="full msg" id="formMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- PRIVACY -->
+<article id="privacy" class="legaldoc">
+  <div class="wrap">
+    <div class="legalbox glass">
+      <a class="back" href="#top"><svg class="ic"><use href="#i-arrow"/></svg>Back to the site</a>
+      <p class="kicker">Legal</p>
+      <h1>Privacy policy</h1>
+      <p class="meta">Last updated: 12 November 2026</p>
+
+      <h2>1. Who we are</h2>
+      <p>Conv-AI is a trading name of Lucere TG Ltd, a company registered in England and Wales with company number 12995725. Our registered office is <span class="ph">registered office address</span>.</p>
+      <p>Lucere TG Ltd is the controller of the personal data described in this policy.</p>
+      <p>If you have any questions about this policy or how we use your information, contact us at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>.</p>
+
+      <h2>2. What this policy covers</h2>
+      <p>This policy explains how we use personal data when you visit this website, contact us, or ask to join the Conv-AI focus group.</p>
+      <p>It does not cover documents and client information that law firms and other customers upload to the Conv-AI platform. In that case the customer is the controller and we act on their instructions as a processor, under a separate written agreement.</p>
+
+      <h2>3. The information we collect</h2>
+      <ul>
+        <li><strong>Information you give us.</strong> When you use our contact form we collect your name, email address, firm or organisation, the type of enquirer you are, your approximate monthly volume of title reviews, whether you would like to join the focus group, and anything you write in your message.</li>
+        <li><strong>Correspondence.</strong> If you email or speak to us, we keep a record of that correspondence.</li>
+        <li><strong>Technical information.</strong> Our hosting provider automatically records limited technical data when you visit the site, such as your IP address, browser type and the pages requested. We use this to keep the site secure and working.</li>
+      </ul>
+      <p>We do not ask for special category data through this website. Please do not include it, or any confidential client information, in your message.</p>
+
+      <h2>4. How we use your information and our lawful basis</h2>
+      <ul>
+        <li><strong>To respond to your enquiry</strong> and send you a confirmation email. Our lawful basis is our legitimate interest in answering people who contact us, or taking steps at your request before entering into a contract.</li>
+        <li><strong>To run the focus group and pilot</strong>, including contacting you to arrange calls and early access. Our lawful basis is our legitimate interest in developing the platform with the people who asked to take part.</li>
+        <li><strong>To keep you updated about Conv-AI</strong>, where you have asked us to or where the law allows. You can ask us to stop at any time.</li>
+        <li><strong>To keep the website secure and working.</strong> Our lawful basis is our legitimate interest in operating a safe, reliable site.</li>
+        <li><strong>To meet our legal obligations</strong> and to establish, exercise or defend legal claims.</li>
+      </ul>
+      <p>We do not use your information for automated decision-making that has a legal or similarly significant effect on you.</p>
+
+      <h2>5. Who we share it with</h2>
+      <p>We do not sell your personal data. We share it only with service providers who help us run the website and our business, acting on our instructions:</p>
+      <ul>
+        <li><strong>Cloudflare</strong>, which hosts this website and provides its domain name services.</li>
+        <li><strong>Resend</strong>, which delivers contact form submissions to us and the emails we send from the website.</li>
+        <li><strong>IONOS</strong>, which provides our email mailboxes.</li>
+        <li><strong>Google Analytics</strong>, if you accept analytics cookies, which tells us how the site is used.</li>
+        <li><strong>Google Fonts</strong>, which supplies the typeface used on this site. Your browser requests the font files from Google, which involves sharing your IP address with Google.</li>
+        <li>Our professional advisers, and regulators or authorities where we are legally required to.</li>
+      </ul>
+
+      <h2>6. International transfers</h2>
+      <p>Some of our service providers are based outside the United Kingdom, including in the United States. Where your personal data is transferred outside the UK, we make sure it is protected by an appropriate safeguard, such as UK adequacy regulations or the UK International Data Transfer Agreement or Addendum.</p>
+
+      <h2>7. How long we keep it</h2>
+      <p>We keep enquiry and focus group information for <span class="ph">24 months</span> after our last contact with you, unless you become a customer or ask us to delete it sooner. Technical logs are kept for a short period by our hosting provider.</p>
+
+      <h2>8. Cookies</h2>
+      <p>This website does not use advertising cookies. Where we use analytics, we use Google Analytics, and only after you accept analytics cookies. It sets cookies that tell us which pages are visited and how people find the site, and it does not tell us who you are.</p>
+      <p>You can change your choice at any time using the Cookie settings link at the bottom of the page. We also store your cookie choice in your browser so that we do not ask you again.</p>
+
+      <h2>9. Your rights</h2>
+      <p>Under UK data protection law you have the right to:</p>
+      <ul>
+        <li>ask for a copy of the personal data we hold about you;</li>
+        <li>ask us to correct information that is inaccurate or incomplete;</li>
+        <li>ask us to delete your personal data;</li>
+        <li>ask us to restrict how we use it, or object to our use of it;</li>
+        <li>ask us to transfer your data to you or another organisation;</li>
+        <li>withdraw your consent at any time, where we rely on consent.</li>
+      </ul>
+      <p>To use any of these rights, email <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>. We will respond within one month. There is normally no charge.</p>
+
+      <h2>10. Complaints</h2>
+      <p>If you are unhappy with how we have used your information, please contact us first so we can try to put it right. You also have the right to complain to the Information Commissioner's Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a> or on 0303 123 1113.</p>
+
+      <h2>11. Changes to this policy</h2>
+      <p>We may update this policy from time to time. The date at the top shows when it was last changed.</p>
+    </div>
+  </div>
+</article>
+
+<!-- TERMS -->
+<article id="terms" class="legaldoc">
+  <div class="wrap">
+    <div class="legalbox glass">
+      <a class="back" href="#top"><svg class="ic"><use href="#i-arrow"/></svg>Back to the site</a>
+      <p class="kicker">Legal</p>
+      <h1>Website terms of use</h1>
+      <p class="meta">Last updated: 12 November 2026</p>
+
+      <h2>1. About these terms</h2>
+      <p>These terms apply to your use of conv-ai.co.uk (the site). By using the site you accept them. If you do not agree, please do not use the site.</p>
+      <p>The site is operated by Lucere TG Ltd, trading as Conv-AI, a company registered in England and Wales with company number 12995725. Our registered office is <span class="ph">registered office address</span>. You can contact us at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>.</p>
+
+      <h2>2. The Conv-AI platform is covered separately</h2>
+      <p>These terms cover this website only. Access to the Conv-AI platform, including the pilot, is governed by a separate agreement that we will give you before you use it. If there is any conflict between these terms and that agreement, the agreement applies to your use of the platform.</p>
+
+      <h2>3. Information on the site is not legal advice</h2>
+      <p>The content on the site is general information about Conv-AI and how it works. It is not legal advice and you should not rely on it as such. If you are buying or selling a property, take advice from your own conveyancer or solicitor.</p>
+      <p>Examples shown on the site, including the sample title, register entries, names, reports and audit trail, are illustrative and fictional. They show how the platform presents information and are not the output of a real matter.</p>
+      <p>We try to keep the site accurate and up to date, but we do not promise that it is complete, current or free from errors. Features described on the site may change before or after launch.</p>
+
+      <h2>4. Using the site</h2>
+      <p>You may use the site for lawful purposes only. You must not:</p>
+      <ul>
+        <li>use the site in any way that breaks a law or regulation;</li>
+        <li>try to gain unauthorised access to the site, the platform, or any server or system connected to them;</li>
+        <li>introduce viruses or other harmful material, or attack the site in any way;</li>
+        <li>copy, scrape or harvest the site's content by automated means, except as allowed by a search engine's normal indexing;</li>
+        <li>send us confidential client information or documents through the contact form.</li>
+      </ul>
+
+      <h2>5. Your account details</h2>
+      <p>If we give you login details for the platform, keep them confidential and tell us straight away at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a> if you think someone else has used them.</p>
+
+      <h2>6. Intellectual property</h2>
+      <p>We own or license all intellectual property rights in the site and its content, including the Conv-AI name, logo, text, design, graphics and software. You may view the site and print or download extracts for your own business or personal reference. You must not otherwise copy, republish or use our content for commercial purposes without our written permission.</p>
+
+      <h2>7. Links</h2>
+      <p>You may link to the site as long as you do so fairly and do not suggest any endorsement by us where none exists. Where the site links to other websites, we do not control them and are not responsible for their content.</p>
+
+      <h2>8. Availability</h2>
+      <p>The site is provided free of charge. We do not guarantee that it will always be available or uninterrupted, and we may suspend, withdraw or change all or part of it without notice.</p>
+
+      <h2>9. Our responsibility to you</h2>
+      <p>Nothing in these terms excludes or limits our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, or for anything else that cannot be excluded or limited under the law of England and Wales.</p>
+      <p><strong>If you are a business user:</strong> we exclude all implied conditions, warranties and representations that may apply to the site or its content. We will not be liable for loss of profits, sales, business or revenue, business interruption, loss of anticipated savings, loss of business opportunity, goodwill or reputation, or any indirect or consequential loss arising from your use of, or inability to use, the site.</p>
+      <p><strong>If you are a consumer:</strong> we provide the site for domestic and private use only. If we fail to comply with these terms, we are responsible for loss or damage you suffer that is a foreseeable result of our breach or our failing to use reasonable care and skill. Your statutory rights are not affected.</p>
+
+      <h2>10. Privacy and cookies</h2>
+      <p>Our <a href="#privacy">privacy policy</a> explains how we use your personal information and cookies.</p>
+
+      <h2>11. Changes to these terms</h2>
+      <p>We may update these terms from time to time. The date at the top shows when they were last changed, and the updated terms apply from the time they are posted.</p>
+
+      <h2>12. Governing law</h2>
+      <p>These terms are governed by the law of England and Wales. If you are a business, the courts of England and Wales have exclusive jurisdiction. If you are a consumer, you may bring proceedings in the courts of the part of the United Kingdom where you live.</p>
+    </div>
+  </div>
+</article>
+
+<div class="cookie glass" id="cookie" hidden role="region" aria-label="Cookie choice">
+  <p><strong>Analytics cookies.</strong> We would like to use Google Analytics to see how the site is used. It only runs if you accept. See our <a href="#privacy">privacy policy</a>.</p>
+  <div class="row"><button class="btn sm" id="ckYes" type="button">Accept analytics</button><button class="btn out sm" id="ckNo" type="button">Decline</button></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="stack" style="gap:16px"><span class="lg"><img src="/assets/logo.png" alt="Conv-AI"></span><p style="max-width:34ch">Clear property title intelligence, designed for conveyancers, by conveyancers.</p></div>
+    <div><h4>Product</h4><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#platform">Platform</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#who">Who it's for</a></li><li><a href="#about">About us</a></li><li><a href="#contact">Get in touch</a></li></ul></div>
+    <div><h4>Platform</h4><ul><li><button class="fl" data-login>Log in</button></li><li><a href="#contact">Join the focus group</a></li></ul></div>
+    <div class="legal-links" style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:22px"><a href="#privacy">Privacy policy</a><a href="#terms">Terms of use</a><button class="fl" id="ckOpen" hidden>Cookie settings</button><a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a></div>
+    <p class="legal">© 2026 Conv-AI. Conv-AI is a trading name of Lucere TG Ltd, registered in England and Wales, company number 12995725. Registered office: <span class="ph">registered office address</span>.</p>
+  </div>
+</footer>
+
+<!-- LOGIN -->
+<div class="veil" id="veil" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <form class="login glass" id="loginForm" novalidate>
+    <button type="button" class="x" id="loginClose" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+    <img src="/assets/logo.png" alt="Conv-AI">
+    <h2 id="loginTitle">Log in to the platform</h2>
+    <label for="l-email">Email<input id="l-email" type="email" autocomplete="username" required></label>
+    <label for="l-pass">Password<input id="l-pass" type="password" autocomplete="current-password" required></label>
+    <button class="btn" type="submit"><svg class="ic"><use href="#i-lock"/></svg>Log in</button>
+    <div class="msg" id="loginMsg" role="status"></div>
+    <p class="alt">Not on the pilot yet? <a href="#contact" id="loginJoin">Join the focus group</a></p>
+  </form>
+</div>
+
+<script>
+(function(){
+  var FORM_LIVE = true;   // true on the live site: the contact form posts to /api/contact, which emails it through Resend
+  var APP_URL = 'https://app.conv-ai.co.uk';       // set to the platform's sign-in URL to make "Log in" go straight there
+  var TRUSTED_BY = ['Firm name', 'Firm name', 'Firm name', 'Firm name']; // replace with real firm names; the section hides on the live site until you do
+  var GA_ID = '';         // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXXXXX'. Empty = no analytics, no banner
+  var $ = function(s,r){ return (r||document).querySelector(s); }, $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* nav */
+  var nav = $('#mainNav'), menuBtn = $('#menuBtn');
+  menuBtn.addEventListener('click', function(){ menuBtn.setAttribute('aria-expanded', nav.classList.toggle('open')); });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a')){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); } });
+  var links = $$('#mainNav a.l'), secs = links.map(function(a){ return $(a.getAttribute('href')); });
+  function onScroll(){
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    $('.navin').style.setProperty('--p', max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0);
+    var y = window.innerHeight * .4, cur = -1;
+    secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top < y) cur = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  function route(){
+    var legal = location.hash === '#privacy' || location.hash === '#terms';
+    document.body.classList.toggle('legal', legal);
+    $$('.legaldoc').forEach(function(d){ d.classList.toggle('on', '#' + d.id === location.hash); });
+    if(legal){ window.scrollTo(0,0); return; }
+    if(location.hash.length > 1){ var t = null; try { t = $(location.hash); } catch(e){} if(t) t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', route); route();
+
+  /* glass light follows the pointer; hero layers drift with it */
+  var s3 = $('#scene3d');
+  document.addEventListener('pointermove', function(e){
+    var g = e.target.closest && e.target.closest('.glass');
+    if(g){ var r = g.getBoundingClientRect(); g.style.setProperty('--mx', (e.clientX - r.left) + 'px'); g.style.setProperty('--my', (e.clientY - r.top) + 'px'); }
+    if(!calm && s3){ s3.style.setProperty('--px', (e.clientX / window.innerWidth - .5).toFixed(3)); s3.style.setProperty('--py', (e.clientY / window.innerHeight - .5).toFixed(3)); }
+  }, {passive:true});
+
+  /* reveal on scroll */
+  if(!calm && 'IntersectionObserver' in window){
+    document.documentElement.classList.add('js-rv');
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    $$('.rv').forEach(function(el){ io.observe(el); });
+  }
+
+  /* film */
+  var film = $('#film'), scenes = $$('.scene', film), chaps = $$('.chap', film), playBtn = $('#playBtn'), cur = 0, userPaused = false, inView = false;
+  function sync(){ film.classList.toggle('paused', userPaused || !inView); }
+  function show(i){
+    cur = (i + scenes.length) % scenes.length;
+    scenes.forEach(function(s,n){ s.classList.toggle('active', n === cur); });
+    chaps.forEach(function(c,n){ c.classList.toggle('active', n === cur); c.classList.toggle('done', n < cur); });
+  }
+  chaps.forEach(function(c,n){
+    c.addEventListener('click', function(){ show(n); });
+    $('i', c).addEventListener('animationend', function(){ if(n === cur) show(cur + 1); });
+  });
+  playBtn.addEventListener('click', function(){
+    userPaused = !userPaused; sync();
+    $('#playIc').setAttribute('href', userPaused ? '#i-play' : '#i-pause');
+    playBtn.setAttribute('aria-label', (userPaused ? 'Play' : 'Pause') + ' the walkthrough');
+  });
+  $('#prevBtn').addEventListener('click', function(){ show(cur - 1); });
+  $('#nextBtn').addEventListener('click', function(){ show(cur + 1); });
+  var sx = null, stage = $('.stage', film);
+  stage.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  stage.addEventListener('touchend', function(e){ if(sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if(Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); }, {passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ inView = es[0].isIntersecting; sync(); }, {threshold:.25}).observe(film);
+  } else { inView = true; }
+  sync();
+  if(calm) playBtn.style.visibility = 'hidden';
+
+  /* workspace */
+  var wsdoc = $('#wsdoc');
+  function pick(btn, scroll){
+    $$('.item.sel').forEach(function(b){ b.classList.remove('sel'); });
+    $$('.hit', wsdoc).forEach(function(e){ e.classList.remove('hit'); });
+    btn.classList.add('sel');
+    var e = $('#src-' + btn.dataset.src); if(!e) return;
+    e.classList.add('hit');
+    if(btn.dataset.src === 'c2') $('#src-c3').classList.add('hit');
+    if(scroll) wsdoc.scrollTo({top: e.offsetTop - wsdoc.offsetTop - 70, behavior: calm ? 'auto' : 'smooth'});
+  }
+  $$('.item').forEach(function(b){ b.addEventListener('click', function(){ pick(b, true); }); });
+  $$('.tabs button').forEach(function(t){
+    t.addEventListener('click', function(){
+      $$('.tabs button').forEach(function(x){ x.setAttribute('aria-selected', x === t); });
+      $$('.panel').forEach(function(p){ p.classList.toggle('on', p.id === 'p-' + t.dataset.tab); });
+      var first = $('#p-' + t.dataset.tab + ' .item'); if(first) pick(first, true);
+    });
+  });
+  pick($('#p-sum .item[data-src="c1"]'), false);
+  var copyBtn = $('#copyBtn'), copyLbl = $('span', copyBtn);
+  copyBtn.addEventListener('click', function(){
+    var t = $$('.hit span', wsdoc).map(function(e){ return e.textContent; }).join('\n');
+    var done = function(m){ copyLbl.textContent = m; setTimeout(function(){ copyLbl.textContent = 'Copy exact wording'; }, 1800); };
+    try { navigator.clipboard.writeText(t).then(function(){ done('Copied'); }, function(){ done('Select the text to copy'); }); }
+    catch(e){ done('Select the text to copy'); }
+  });
+
+  /* trusted by */
+  (function(){
+    var real = TRUSTED_BY.filter(function(n){ return n && n !== 'Firm name'; }), list = $('#firms');
+    if(!real.length && FORM_LIVE){ $('#trustedSec').hidden = true; return; }
+    (real.length ? real : TRUSTED_BY).forEach(function(n){
+      var li = document.createElement('li'); li.textContent = n; li.className = real.length ? 'glass' : 'slot'; list.appendChild(li);
+    });
+  })();
+
+  /* schedule a demo buttons tick the demo box on the form */
+  $$('[data-demo]').forEach(function(b){ b.addEventListener('click', function(){ $('#f-demo').checked = true; }); });
+
+  /* who toggle */
+  $$('.seg button').forEach(function(b){
+    b.addEventListener('click', function(){
+      $$('.seg button').forEach(function(x){ x.setAttribute('aria-selected', x === b); });
+      $$('.who').forEach(function(w){ w.classList.toggle('on', w.id === 'w-' + b.dataset.who); });
+    });
+  });
+
+  /* analytics: loads only with a measurement ID and the visitor's consent */
+  (function(){
+    if(!GA_ID) return;
+    var KEY = 'convai-analytics', bar = $('#cookie'), open = $('#ckOpen'), choice = null, loaded = false;
+    try { choice = localStorage.getItem(KEY); } catch(e){}
+    function load(){
+      if(loaded) return; loaded = true;
+      window['ga-disable-' + GA_ID] = false;
+      var sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(sc);
+      window.dataLayer = window.dataLayer || []; window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date()); window.gtag('config', GA_ID);
+      window.addEventListener('hashchange', function(){ window.gtag('event', 'page_view', {page_location: location.href, page_title: document.title}); });
+    }
+    function set(v){ try { localStorage.setItem(KEY, v); } catch(e){} bar.hidden = true; if(v === 'yes') load(); else window['ga-disable-' + GA_ID] = true; }
+    $('#ckYes').addEventListener('click', function(){ set('yes'); });
+    $('#ckNo').addEventListener('click', function(){ set('no'); });
+    open.hidden = false; open.addEventListener('click', function(){ bar.hidden = false; });
+    if(choice === 'yes') load(); else if(choice !== 'no') bar.hidden = false;
+  })();
+
+  /* messages */
+  function say(el, t, kind){ el.textContent = t; el.className = el.className.replace(/ ?(show|ok|warn)/g,'') + ' show' + (kind ? ' ' + kind : ''); }
+  var okEmail = function(v){ return /^\S+@\S+\.\S+$/.test(v); };
+
+  /* contact */
+  var form = $('#contactForm'), msg = $('#formMsg');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if(!form.elements['name'].value.trim() || !okEmail(form.elements['email'].value.trim())){ say(msg, 'Please add your name and a valid email address so we can reply.', 'warn'); return; }
+    if(!FORM_LIVE){ say(msg, 'This is a preview of the site, so the form is not connected yet and nothing has been sent.'); return; }
+    fetch('/api/contact', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){ if(!r.ok) throw 0; form.reset(); say(msg, 'Thank you. Someone from Conv-AI will be in touch.', 'ok'); })
+      .catch(function(){ say(msg, 'Sorry, that did not send. Please email us at hello@conv-ai.co.uk instead.', 'warn'); });
+  });
+
+  /* login */
+  var veil = $('#veil'), lform = $('#loginForm'), lmsg = $('#loginMsg'), lastFocus = null;
+  function openLogin(){
+    if(APP_URL){ location.href = APP_URL; return; }
+    lastFocus = document.activeElement; veil.classList.add('open'); nav.classList.remove('open'); $('#l-email').focus();
+  }
+  function closeLogin(){ veil.classList.remove('open'); lmsg.className = 'msg'; if(lastFocus) lastFocus.focus(); }
+  $$('[data-login]').forEach(function(b){ b.addEventListener('click', openLogin); });
+  $('#loginClose').addEventListener('click', closeLogin);
+  $('#loginJoin').addEventListener('click', closeLogin);
+  veil.addEventListener('click', function(e){ if(e.target === veil) closeLogin(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && veil.classList.contains('open')) closeLogin(); });
+  lform.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if(!okEmail($('#l-email').value.trim()) || !$('#l-pass').value){ say(lmsg, 'Enter your email address and password.', 'warn'); return; }
+    say(lmsg, 'Platform sign-in is not connected to this site yet. Access opens with the pilot.');
+  });
+})();
+</script>
+</body>
+</html>
