@@ -3,7 +3,7 @@
 const FOREST = '#003F2A', LEAF = '#5B9E42', MIST = '#F1F7F0', INK = '#112D27', MUTED = '#52665F';
 const FONT = "Inter, Arial, Helvetica, sans-serif";
 
-const COMPANY = { trading: 'Conv-AI', legal: 'Lucere TG Ltd', number: '12995725', office: '[registered office address]' };
+const COMPANY = { trading: 'Conv-AI', legal: 'Lucere TG Ltd', number: '12995725', office: 'Carlyle House, 78 Chorley New Road, Bolton, Greater Manchester, BL1 4BY' };
 // Call once with the registered office (the Worker passes env.COMPANY_OFFICE).
 export function setOffice(office) { if (office) COMPANY.office = office; }
 

@@ -14,7 +14,7 @@
     "EMAIL_FROM": "Conv-AI <hello@conv-ai.co.uk>",
     "EMAIL_NOTIFY": "hello@conv-ai.co.uk",
     "SITE_URL": "https://conv-ai.co.uk",
-    "COMPANY_OFFICE": "[registered office address]"
+    "COMPANY_OFFICE": "Carlyle House, 78 Chorley New Road, Bolton, Greater Manchester, BL1 4BY"
   },
   "observability": { "enabled": true }
 }

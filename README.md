@@ -46,8 +46,7 @@ the visitor is told it did not send and is asked to email hello@conv-ai.co.uk in
 
 1. In Resend, add and verify `conv-ai.co.uk` (section 4 of `DNS-SETUP.md`) and create an API key.
 2. `npx wrangler secret put RESEND_API_KEY`, or add it as a Secret under the Worker's Settings > Variables and Secrets.
-3. Put the registered office in `COMPANY_OFFICE` in `wrangler.jsonc` (it appears in the email footer) and redeploy.
-4. Send a test submission from the live site.
+3. Send a test submission from the live site.
 
 ## Google Analytics
 
@@ -60,11 +59,12 @@ The Log in buttons go to `https://app.conv-ai.co.uk` (`APP_URL` near the top of 
 
 ## Trusted by
 
-Put real firm names in `TRUSTED_BY` in the same script. The section stays hidden on the live site until you do.
+Put real firms in `TRUSTED_BY` in the same script: either a name, or `{name:'Firm', logo:'/assets/trusted/firm.png'}`
+with the artwork saved in `public/assets/trusted/`. The section stays hidden on the live site until you do.
 
 ## Before going live
 
-- Fill in the highlighted placeholders in the privacy policy, terms and footer: registered office and retention period.
+- Confirm the retention period highlighted in the privacy policy (24 months).
 - Register Lucere TG Ltd with the ICO.
 - Have the privacy policy and terms of use reviewed by whoever advises you.
 - Review the About copy, the individuals disclaimer and the sample title data.

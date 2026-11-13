@@ -129,16 +129,16 @@ section{padding:110px 0;position:relative}
 
 /* nav */
 header.nav{position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 14px}
-.navin{max-width:1220px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:10px 12px 10px 20px;border-radius:22px;overflow:hidden}
+.navin{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:10px 12px 10px 20px;border-radius:22px;overflow:hidden}
 .navin .prog{position:absolute;left:0;bottom:0;height:2.5px;width:calc(var(--p,0)*100%);background:var(--leaf);border-radius:2px}
 .logo{display:flex;align-items:center;flex:none}
 .logo img{height:34px;width:auto;display:block}
 .nav nav{display:flex;gap:2px;margin-left:auto;align-items:center}
-.nav nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;padding:9px 13px;border-radius:11px;color:var(--ink);transition:background .2s}
+.nav nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;padding:9px 11px;white-space:nowrap;border-radius:11px;color:var(--ink);transition:background .2s}
 .nav nav a.l:hover,.nav nav a.l.on{background:rgba(0,63,42,.08);color:var(--forest)}
 .nav .acts{display:flex;gap:8px;margin-left:10px}
 #menuBtn{display:none;margin-left:auto;background:rgba(255,255,255,.7);border:1.5px solid var(--forest);border-radius:12px;padding:9px;cursor:pointer;color:var(--forest)}
-@media(max-width:1060px){
+@media(max-width:1280px){
   #menuBtn{display:grid}
   .nav nav{display:none}
   .nav nav.open{display:flex;position:absolute;left:14px;right:14px;top:70px;flex-direction:column;align-items:stretch;padding:14px;border-radius:22px;margin:0;
@@ -402,6 +402,8 @@ ul.pts .ic{color:var(--leaf);margin-top:2px}
 .trusted .wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
 .firms{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;list-style:none;margin:0;padding:0}
 .firms li{padding:14px 26px;border-radius:16px;font-weight:700;color:var(--forest);font-size:1.02rem}
+.firms li.logo{padding:12px 22px;display:flex;align-items:center;background:rgba(255,255,255,.85)}
+.firms li.logo img{height:38px;width:auto;max-width:170px;display:block}
 .firms li.slot{background:none;border:1.5px dashed rgba(0,63,42,.3);box-shadow:none;color:var(--muted);font-weight:500;-webkit-backdrop-filter:none;backdrop-filter:none}
 /* pricing extras */
 .perks{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 36px;padding:0;list-style:none}
@@ -414,7 +416,7 @@ ul.pts .ic{color:var(--leaf);margin-top:2px}
 .tier.best ul.feat .ic{color:#a8dc8f}
 .tier .tag{font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
 .tier.best .tag{color:#a8dc8f}
-.tier .who-for{min-height:4.4em}
+.tier .who-for{min-height:5.8em}
 .textlink{color:var(--forest);font-weight:700}
 
 /* form */
@@ -529,6 +531,7 @@ footer .ph{white-space:normal}
       <a class="l" href="#about">About</a>
       <div class="acts">
         <button class="btn out sm" data-login><svg class="ic"><use href="#i-lock"/></svg>Log in</button>
+        <a class="btn out sm" href="#contact" data-demo>Schedule a demo</a>
         <a class="btn sm" href="#contact">Join the focus group</a>
       </div>
     </nav>
@@ -814,7 +817,7 @@ footer .ph{white-space:normal}
       </div>
       <div class="callout glass">
         <span class="tile"><svg class="ic"><use href="#i-token"/></svg></span>
-        <div><h3>Join the firms shaping the first release</h3><p style="color:var(--muted)">Focus group members get <span class="ph">XX</span> free tokens, early access during the pilot, a direct line to the conveyancers building it, and a chance to be one of our monthly highlighted firms.</p></div>
+        <div><h3>Join the firms shaping the first release</h3><p style="color:var(--muted)">Focus group members get 50 free tokens when subscribing to any of our packages, early access during the pilot, a direct line to the founders, and a chance to be one of our monthly highlighted firms.</p></div>
         <a class="btn" href="#contact">Register your firm <svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -868,11 +871,12 @@ footer .ph{white-space:normal}
       </div>
       <div class="tier glass lift rv" style="--i:1">
         <span class="tag">Starter bundle</span>
-        <h3>Enterprise Lite</h3><p class="who-for">For consultants and small teams getting started.</p>
+        <h3>Enterprise Lite</h3><p class="who-for">The one agents tend to go for ahead of taking a property on, or for a pre-compiled report for a buyer.</p>
         <ul class="feat">
           <li><svg class="ic"><use href="#i-check"/></svg><span>Title summary, draft enquiries, risks and client report on every matter</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span>Our reports or your own house style template</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span>A smaller token bundle at a lower price per review than pay as you go</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Auto top-up option</span></li>
         </ul>
         <a class="btn out" href="#contact">Get in touch</a>
       </div>
@@ -882,7 +886,8 @@ footer .ph{white-space:normal}
         <ul class="feat">
           <li><svg class="ic"><use href="#i-check"/></svg><span>Everything in Enterprise Lite</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span>A larger token bundle shared across your team</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span>A lower price per review as your volume grows</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Volume discounts</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Auto top-up option</span></li>
         </ul>
         <a class="btn out" href="#contact">Get in touch</a>
       </div>
@@ -893,9 +898,10 @@ footer .ph{white-space:normal}
         <ul class="feat">
           <li><svg class="ic"><use href="#i-check"/></svg><span>Everything in Enterprise</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span>1,000 tokens at our lowest price, £0.80 per review*</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span>Bulk and enterprise discounts above 1,000</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Volume discounts</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Auto top-up option</span></li>
         </ul>
-        <div class="bonus"><strong>Special offer:</strong> we top you up with 50 extra tokens. That's 50 more freehold title reviews.</div>
+        <div class="bonus"><strong>Special offer:</strong> we top you up with 100 extra tokens. That's 100 more freehold title reviews.</div>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -920,6 +926,11 @@ footer .ph{white-space:normal}
         <p>We are practising conveyancers who have spent years doing exactly that, working with a product team that builds data platforms for regulated entities governed by various regulators including the FCA, SRA and CLC. The platform is built, and we are piloting shortly before opening to law firms.</p>
       </div>
     </div>
+    <div class="grid g2" style="margin-bottom:20px">
+      <div class="card glass lift rv" style="--i:0"><span class="num">FOCUS GROUP</span><h3>50 free tokens for joining</h3><p>Focus group members get 50 free tokens when subscribing to any of our packages, plus early access and a direct line to the founders.</p></div>
+      <div class="card glass lift rv" style="--i:1"><span class="num">PILOT SESSIONS</span><h3>Unlimited reviews for 10 days</h3><p>In a pilot session you can run as many title reviews as you wish in a 10 day period, on your own matters.</p></div>
+    </div>
+    <div class="row rv" style="margin-bottom:56px"><a class="btn lightbtn" href="#contact">Join the focus group <svg class="ic"><use href="#i-arrow"/></svg></a></div>
     <div class="grid g4">
       <div class="card glass lift rv" style="--i:0"><span class="num">01</span><h3>Show the source</h3><p>If a point cannot be traced to a clause, it does not belong in the output.</p></div>
       <div class="card glass lift rv" style="--i:1"><span class="num">02</span><h3>Lawyer in the loop</h3><p>A solicitor reviews and approves every client report before release.</p></div>
@@ -937,9 +948,10 @@ footer .ph{white-space:normal}
       <h2>Join the focus group or schedule a demo.</h2>
       <p class="lede">Tell us a little about you and someone will be in touch. Focus group members see Conv-AI first and help decide what a working conveyancing team needs from it.</p>
       <ul class="pts">
-        <li><svg class="ic"><use href="#i-token"/></svg><span><span class="ph">XX</span> free tokens when you join the focus group</span></li>
+        <li><svg class="ic"><use href="#i-token"/></svg><span>50 free tokens when you subscribe to any of our packages</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span>Early access during the pilot</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span>A direct line to the conveyancers building it</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span>A direct line to the founders</span></li>
+        <li><svg class="ic"><use href="#i-clock"/></svg><span>Pilot sessions: run as many title reviews as you wish in a 10 day period</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span>A say in what we build next</span></li>
       </ul>
       <p style="color:var(--muted)">Already on the pilot? <button data-login style="background:none;border:0;padding:0;font:700 1rem var(--font);color:var(--forest);cursor:pointer;text-decoration:underline">Log in to the platform</button></p>
@@ -972,7 +984,7 @@ footer .ph{white-space:normal}
       <p class="meta">Last updated: 12 November 2026</p>
 
       <h2>1. Who we are</h2>
-      <p>Conv-AI is a trading name of Lucere TG Ltd, a company registered in England and Wales with company number 12995725. Our registered office is <span class="ph">registered office address</span>.</p>
+      <p>Conv-AI is a trading name of Lucere TG Ltd, a company registered in England and Wales with company number 12995725. Our registered office is Carlyle House, 78 Chorley New Road, Bolton, Greater Manchester, BL1 4BY.</p>
       <p>Lucere TG Ltd is the controller of the personal data described in this policy.</p>
       <p>If you have any questions about this policy or how we use your information, contact us at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>.</p>
 
@@ -1051,7 +1063,7 @@ footer .ph{white-space:normal}
 
       <h2>1. About these terms</h2>
       <p>These terms apply to your use of conv-ai.co.uk (the site). By using the site you accept them. If you do not agree, please do not use the site.</p>
-      <p>The site is operated by Lucere TG Ltd, trading as Conv-AI, a company registered in England and Wales with company number 12995725. Our registered office is <span class="ph">registered office address</span>. You can contact us at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>.</p>
+      <p>The site is operated by Lucere TG Ltd, trading as Conv-AI, a company registered in England and Wales with company number 12995725. Our registered office is Carlyle House, 78 Chorley New Road, Bolton, Greater Manchester, BL1 4BY. You can contact us at <a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a>.</p>
 
       <h2>2. The Conv-AI platform is covered separately</h2>
       <p>These terms cover this website only. Access to the Conv-AI platform, including the pilot, is governed by a separate agreement that we will give you before you use it. If there is any conflict between these terms and that agreement, the agreement applies to your use of the platform.</p>
@@ -1112,7 +1124,7 @@ footer .ph{white-space:normal}
     <div><h4>Company</h4><ul><li><a href="#who">Who it's for</a></li><li><a href="#about">About us</a></li><li><a href="#contact">Get in touch</a></li></ul></div>
     <div><h4>Platform</h4><ul><li><button class="fl" data-login>Log in</button></li><li><a href="#contact">Join the focus group</a></li></ul></div>
     <div class="legal-links" style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:22px"><a href="#privacy">Privacy policy</a><a href="#terms">Terms of use</a><button class="fl" id="ckOpen" hidden>Cookie settings</button><a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a></div>
-    <p class="legal">© 2026 Conv-AI. Conv-AI is a trading name of Lucere TG Ltd, registered in England and Wales, company number 12995725. Registered office: <span class="ph">registered office address</span>.</p>
+    <p class="legal">© 2026 Conv-AI. Conv-AI is a trading name of Lucere TG Ltd, registered in England and Wales, company number 12995725. Registered office: Carlyle House, 78 Chorley New Road, Bolton, Greater Manchester, BL1 4BY.</p>
   </div>
 </footer>
 
@@ -1134,7 +1146,8 @@ footer .ph{white-space:normal}
 (function(){
   var FORM_LIVE = true;   // true on the live site: the contact form posts to /api/contact, which emails it through Resend
   var APP_URL = 'https://app.conv-ai.co.uk';       // set to the platform's sign-in URL to make "Log in" go straight there
-  var TRUSTED_BY = ['Firm name', 'Firm name', 'Firm name', 'Firm name']; // replace with real firm names; the section hides on the live site until you do
+  // Trusted by: a firm name, or {name:'Firm', logo:'/assets/trusted/firm.png'} for artwork. Hidden on the live site until real entries are added.
+  var TRUSTED_BY = ['Firm name', 'Firm name', 'Firm name', 'Firm name'];
   var GA_ID = '';         // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXXXXX'. Empty = no analytics, no banner
   var $ = function(s,r){ return (r||document).querySelector(s); }, $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1237,7 +1250,10 @@ footer .ph{white-space:normal}
     var real = TRUSTED_BY.filter(function(n){ return n && n !== 'Firm name'; }), list = $('#firms');
     if(!real.length && FORM_LIVE){ $('#trustedSec').hidden = true; return; }
     (real.length ? real : TRUSTED_BY).forEach(function(n){
-      var li = document.createElement('li'); li.textContent = n; li.className = real.length ? 'glass' : 'slot'; list.appendChild(li);
+      var li = document.createElement('li'); li.className = real.length ? 'glass' : 'slot';
+      if(n && n.logo){ var im = document.createElement('img'); im.src = n.logo; im.alt = n.name || ''; li.appendChild(im); li.classList.add('logo'); }
+      else li.textContent = n.name || n;
+      list.appendChild(li);
     });
   })();
 
