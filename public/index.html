@@ -162,16 +162,59 @@ header.nav{position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 14px}
 .heroin>*:nth-child(2){animation-delay:.08s}.heroin>*:nth-child(3){animation-delay:.16s}.heroin>*:nth-child(4){animation-delay:.24s}.heroin>*:nth-child(5){animation-delay:.32s}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}}
 
-.scene3d{position:relative;width:100%;max-width:1120px;height:540px;margin-top:20px;perspective:1600px;text-align:left}
-.layer{position:absolute;transform:translate3d(calc(var(--px,0)*var(--dx,0)*1px),calc(var(--py,0)*var(--dy,0)*1px),0) rotateX(calc(var(--py,0)*-3deg)) rotateY(calc(var(--px,0)*4deg));transition:transform .25s ease-out}
-.bob{animation:bob 7s ease-in-out infinite alternate}
-.bob.b2{animation-duration:9s;animation-delay:-3s}.bob.b3{animation-duration:8s;animation-delay:-5s}
-@keyframes bob{from{transform:translateY(-8px)}to{transform:translateY(10px)}}
-.l-main{left:50%;top:10px;width:540px;margin-left:-270px;--dx:10;--dy:8;z-index:2}
-.l-doc{left:0;top:70px;width:320px;--dx:-26;--dy:-18;z-index:1}
-.l-rep{right:0;top:120px;width:290px;--dx:30;--dy:22;z-index:3}
-.l-badge{left:3%;bottom:0;--dx:-16;--dy:26;z-index:4}
+/* hero product carousel */
+.hc{width:100%;max-width:1080px;margin-top:22px;text-align:left;padding:14px;border-radius:34px}
+.hc-tabs{display:flex;gap:6px;align-items:center;padding:4px 4px 14px;flex-wrap:wrap}
+.hc-tab{border:0;background:none;font:600 .9rem var(--font);color:var(--muted);padding:9px 14px;border-radius:12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.hc-tab b{font-size:.75rem;color:var(--leaf);font-weight:800}
+.hc-tab[aria-selected="true"]{background:var(--forest);color:#fff}
+.hc-tab[aria-selected="true"] b{color:#a8dc8f}
+.hc-nav{margin-left:auto;display:flex;gap:6px}
+.hc-nav button{width:38px;height:38px;border-radius:12px;border:1px solid var(--hair);background:rgba(255,255,255,.7);color:var(--forest);display:grid;place-items:center;cursor:pointer}
+.hc-nav button .ic{width:18px;height:18px}
+.hc-nav .prev .ic{transform:rotate(180deg)}
+.hc-stage{display:grid;grid-template-columns:minmax(0,1fr)}
+.hc-slide{grid-area:1/1;min-width:0;display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:28px;align-items:center;padding:8px 10px 10px;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+.hc-slide.on{opacity:1;visibility:visible}
+.hc-cap{display:flex;flex-direction:column;gap:12px;padding-left:8px}
+.hc-cap h3{font-size:1.5rem;line-height:1.12;letter-spacing:-.02em}
+.hc-cap p{color:var(--muted);font-size:.98rem}
+.hc-cap .hint{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:.86rem;color:var(--leaf)}
+.hc-cap .hint .ic{width:18px;height:18px}
+.hc-card{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:24px;box-shadow:0 24px 50px -30px rgba(0,63,42,.45),inset 0 1px 0 #fff}
+.hc-slide.on .hc-card{animation:rise .6s both}
+.hc-prog{height:3px;background:var(--hair);border-radius:2px;margin:10px 10px 4px;overflow:hidden}
+.hc-prog i{display:block;height:100%;width:0;background:var(--leaf)}
+.hc.run .hc-prog i{animation:fill 7s linear both}
+.hc.paused .hc-prog i{animation-play-state:paused}
+.toast{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:.84rem;color:var(--st-no);background:var(--st-no-bg);padding:7px 12px;border-radius:10px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:none}
+.toast .ic{width:16px;height:16px}
+.paper p{transition:background .35s,border-color .35s}
+.st.read{background:#EEF2EF;color:var(--muted)}
+.st.read i{width:8px;height:8px;border-radius:50%;background:var(--leaf);animation:pulse 1.2s infinite}
+.sumgrid{display:none;grid-template-columns:auto 1fr;gap:10px 18px;font-size:.92rem;margin:0}
+.sumgrid dt{color:var(--muted);font-weight:600}
+.sumgrid dd{margin:0;color:var(--ink);font-weight:600}
+.app.summary .rows{display:none}
+.app.summary .sumgrid{display:grid}
+.rep .house{display:none;font-size:.8rem;color:var(--muted)}
+.rep.housestyle strong{font-family:Georgia,"Times New Roman",serif;font-weight:700}
+.rep.housestyle .house{display:block}
+.seg2{display:inline-flex;padding:4px;border-radius:12px;background:rgba(0,63,42,.06);gap:2px}
+.seg2 button{border:0;background:none;font:600 .82rem var(--font);color:var(--forest);padding:7px 12px;border-radius:9px;cursor:pointer}
+.seg2 button[aria-pressed="true"]{background:#fff;box-shadow:0 2px 6px rgba(0,63,42,.12)}
+.approved{display:none!important}
+.rep.ok .approved{display:inline-flex!important}
+.rep.ok .pending{display:none!important}
+@media(max-width:860px){
+  .hc{padding:10px}
+  .hc-slide{grid-template-columns:minmax(0,1fr);gap:16px;padding:4px;align-items:start;align-content:start}
+  .hc-cap{padding-left:2px}
+  .hc-tab span{display:none}
+}
 .app{padding:22px;display:flex;flex-direction:column;gap:16px}
+.app .rows{display:flex;flex-direction:column;gap:14px}
 .app .bar{display:flex;gap:10px;flex-wrap:wrap}
 .app hr{border:0;border-top:1px solid var(--hair);margin:0;width:100%}
 .rowi{display:flex;align-items:center;gap:14px}
@@ -193,9 +236,6 @@ header.nav{position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 14px}
 .cov{background:rgba(255,255,255,.75);border:1px solid var(--hair);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;font-size:.86rem;line-height:1.4;color:var(--ink)}
 @media(max-width:900px){
   .hero{padding-top:120px}
-  .scene3d{height:auto;display:flex;flex-direction:column;gap:16px;perspective:none}
-  .layer{position:static;width:100%!important;margin:0!important;transform:none}
-  .bob{animation:none}
 }
 
 /* film */
@@ -396,6 +436,32 @@ ul.pts .ic{color:var(--leaf);margin-top:2px}
 .bonus{background:rgba(255,255,255,.1);border:1px dashed #a8dc8f;border-radius:14px;padding:12px 14px;font-size:.89rem;color:#fff}
 .notes{font-size:.86rem;color:var(--muted);display:flex;flex-direction:column;gap:4px;margin:24px 0 44px}
 
+/* comparison */
+.cmp{border-radius:30px;overflow:hidden;padding:0}
+.cmp-row{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.2fr) minmax(0,1fr);border-top:1px solid var(--hair)}
+.cmp-row:first-child{border-top:0}
+.cmp-row>div{padding:20px 24px;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.cmp-row .f{font-weight:700;color:var(--forest);flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
+.cmp-row .f .tile{width:40px;height:40px;border-radius:12px}
+.cmp-row .f .ic{width:20px;height:20px}
+.cmp-row .us{background:rgba(0,63,42,.045)}
+.cmp-row .us .yes{display:inline-flex;gap:8px;align-items:center;font-weight:700;color:var(--forest)}
+.cmp-row .us .yes .ic{width:20px;height:20px;color:#fff;background:var(--leaf);border-radius:50%;padding:3px;stroke-width:3}
+.cmp-row span.d{font-size:.9rem;color:var(--muted)}
+.cmp-row .them .st{align-self:flex-start}
+.cmp-head{background:var(--forest)}
+.cmp-head>div{padding:16px 24px}
+.cmp-head .us{background:rgba(255,255,255,.08)}
+.cmp-head .us img{height:30px;width:auto;align-self:flex-start;background:#fff;border-radius:9px;padding:4px 10px}
+.cmp-head .them{color:var(--on-deep-muted);font-weight:700}
+.cmp-note{font-size:.82rem;color:var(--muted);margin-top:14px}
+@media(max-width:820px){
+  .cmp-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .cmp-row .f{grid-column:1/-1;padding-bottom:4px}
+  .cmp-row .us,.cmp-row .them{padding-top:12px}
+  .cmp-head .f{display:none}
+}
+
 /* trusted by */
 .trusted{padding:10px 0 70px}
 .trusted[hidden]{display:none}
@@ -552,32 +618,65 @@ footer .ph{white-space:normal}
     </div>
     <p class="by">Created by lawyers, for lawyers. <a class="textlink" href="#how-it-works">Watch the walkthrough</a></p>
 
-    <div class="scene3d" id="scene3d" aria-hidden="true">
-      <div class="layer l-doc"><div class="glass paper bob b2">
-        <small>Official copy · Sample</small>
-        <span class="reg">C: Charges Register</span>
-        <p class="scan">1 &nbsp;A Conveyance dated 2 June 1962 contains restrictive covenants.</p>
-        <p class="scan s2">2 &nbsp;REGISTERED CHARGE dated 22 August 2014.</p>
-        <span class="reg">B: Proprietorship Register</span>
-        <p class="scan s3">2 &nbsp;RESTRICTION: No disposition by a sole proprietor…</p>
-      </div></div>
-      <div class="layer l-main"><div class="glass app bob">
-        <div class="bar"><span class="btn sm">Run title report</span><span class="btn out sm">View summary</span><span class="reviewed" style="padding:9px 14px"><svg class="ic"><use href="#i-shield"/></svg>Solicitor-reviewed output</span></div>
-        <hr>
-        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Use covenant, 1962</b><span>No trade or business from the property</span></div><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
-        <hr>
-        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Building approval covenant, 1962</b><span>Enquiry raised on the rear extension</span></div><span class="st chk"><svg class="ic"><use href="#i-clock"/></svg>Being checked</span></div>
-        <hr>
-        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Registered charge, 2014</b><span>Redeemed on completion</span></div><span class="st no"><svg class="ic"><use href="#i-check"/></svg>No effect</span></div>
-        <hr>
-        <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Road contribution covenant, 1962</b><span>Road since adopted</span></div><span class="st exp">Expired</span></div>
-      </div></div>
-      <div class="layer l-rep"><div class="glass rep bob b3">
-        <small>Client report</small><strong>What the title means for you</strong>
-        <div class="cov"><span>You must not run a trade or business from the house.</span><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
-        <div class="cov"><span>A rule about paying towards the road no longer applies.</span><span class="st exp">Expired</span></div>
-      </div></div>
-      <div class="layer l-badge"><div class="glass bob b2" style="padding:14px 18px;border-radius:18px;display:flex;gap:12px;align-items:center;font-weight:700;font-size:.92rem"><svg class="ic" style="color:var(--leaf)"><use href="#i-link"/></svg>Every point links to its source clause</div></div>
+    <div class="hc glass" id="hc" role="region" aria-label="Conv-AI product tour">
+      <div class="hc-tabs" role="tablist">
+        <button class="hc-tab" role="tab" aria-selected="true"><b>01</b><span>Source documents</span></button>
+        <button class="hc-tab" role="tab" aria-selected="false"><b>02</b><span>Title report</span></button>
+        <button class="hc-tab" role="tab" aria-selected="false"><b>03</b><span>Client report</span></button>
+        <div class="hc-nav"><button class="prev" type="button" aria-label="Previous"><svg class="ic"><use href="#i-arrow"/></svg></button><button class="next" type="button" aria-label="Next"><svg class="ic"><use href="#i-arrow"/></svg></button></div>
+      </div>
+      <div class="hc-stage">
+        <div class="hc-slide on">
+          <div class="hc-cap"><h3>Every page becomes text you can copy.</h3><p>Upload the official copies and deeds. Conv-AI reads each entry and finds the covenants, charges and restrictions.</p><span class="hint"><svg class="ic"><use href="#i-arrow"/></svg>Try the buttons</span></div>
+          <div class="hc-card paper" id="hcDoc" style="font-size:.86rem;padding:22px">
+            <div class="row" style="gap:8px;margin-bottom:6px"><button class="btn sm" type="button" id="hlBtn">Highlight covenants</button><button class="btn out sm" type="button" id="cpBtn">Copy exact wording</button><span class="toast" id="cpToast"><svg class="ic"><use href="#i-check"/></svg>Copied word for word</span></div>
+            <small>Official copy · Sample</small>
+            <span class="reg">C: Charges Register</span>
+            <p data-cov>1 &nbsp;A Conveyance dated 2 June 1962 contains restrictive covenants: not to use the property for any trade or business.</p>
+            <p>2 &nbsp;REGISTERED CHARGE dated 22 August 2014.</p>
+            <span class="reg">B: Proprietorship Register</span>
+            <p data-cov>2 &nbsp;RESTRICTION: No disposition by a sole proprietor of the registered estate under which capital money arises…</p>
+          </div>
+        </div>
+        <div class="hc-slide">
+          <div class="hc-cap"><h3>Findings with a status you can read at a glance.</h3><p>Each covenant, charge and restriction is assessed and linked back to its source clause, including what is missing from the pack.</p><span class="hint"><svg class="ic"><use href="#i-arrow"/></svg>Run the report</span></div>
+          <div class="hc-card app" id="hcApp">
+            <div class="bar"><button class="btn sm" type="button" id="runBtn">Run title report</button><button class="btn out sm" type="button" id="sumBtn">View summary</button><span class="reviewed" style="padding:9px 14px"><svg class="ic"><use href="#i-shield"/></svg>Solicitor-reviewed output</span></div>
+            <div class="rows">
+              <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Use covenant, 1962</b><span>No trade or business from the property</span></div><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
+              <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Building approval covenant, 1962</b><span>Enquiry raised on the rear extension</span></div><span class="st chk"><svg class="ic"><use href="#i-clock"/></svg>Being checked</span></div>
+              <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Registered charge, 2014</b><span>Redeemed on completion</span></div><span class="st no"><svg class="ic"><use href="#i-check"/></svg>No effect</span></div>
+              <div class="rowi"><svg class="ic"><use href="#i-doc"/></svg><div class="t"><b>Approved plans, 1962</b><span>Referred to but not in the pack</span></div><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Missing</span></div>
+            </div>
+            <dl class="sumgrid">
+              <dt>Property</dt><dd>14 Alder Row, Fernleigh</dd>
+              <dt>Title</dt><dd>Freehold, title absolute</dd>
+              <dt>Proprietors</dt><dd>Two, registered 2014</dd>
+              <dt>Burdens</dt><dd>1962 covenants, one registered charge</dd>
+              <dt>To raise</dt><dd>Approval for the rear extension, missing plans</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="hc-slide">
+          <div class="hc-cap"><h3>A client report in plain English, or in your own words.</h3><p>Switch to your house style, then approve. Nothing reaches the client until a solicitor signs it off, and it lands in your Outlook drafts.</p><span class="hint"><svg class="ic"><use href="#i-arrow"/></svg>Approve the report</span></div>
+          <div class="hc-card rep" id="hcRep">
+            <div class="row" style="justify-content:space-between;gap:10px">
+              <div class="seg2" role="group" aria-label="Report format"><button type="button" aria-pressed="true" data-style="ours">Conv-AI format</button><button type="button" aria-pressed="false" data-style="house">Your house style</button></div>
+              <button class="btn sm" type="button" id="apBtn">Approve and send</button>
+            </div>
+            <small>Client report</small><strong id="repTitle">What the title means for you</strong>
+            <span class="house">Prepared in the Example &amp; Co house style</span>
+            <div class="cov"><span id="cov1">You must not run a trade or business from the house.</span><span class="st still"><svg class="ic"><use href="#i-alert"/></svg>Still applies</span></div>
+            <div class="cov"><span id="cov2">A rule about paying towards the road no longer applies.</span><span class="st exp">Expired</span></div>
+            <div class="row" style="gap:8px">
+              <span class="st chk pending"><svg class="ic"><use href="#i-clock"/></svg>Awaiting solicitor approval</span>
+              <span class="st no approved"><svg class="ic"><use href="#i-check"/></svg>Approved by solicitor</span>
+              <span class="toast" id="olToast"><svg class="ic"><use href="#i-check"/></svg>Saved to Outlook drafts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hc-prog" aria-hidden="true"><i></i></div>
     </div>
   </div>
 </section>
@@ -692,6 +791,28 @@ footer .ph{white-space:normal}
       <div class="card glass lift rv" style="--i:1"><span class="tile"><svg class="ic"><use href="#i-arrow"/></svg></span><h3>Straight to your Outlook drafts</h3><p>No more bulk downloading reports. One click takes you to Outlook, where the email is saved in your drafts, ready to send.</p></div>
       <div class="card glass lift rv" style="--i:2"><span class="tile"><svg class="ic"><use href="#i-link"/></svg></span><h3>Works alongside your CMS</h3><p>Conv-AI does not replace your case management system. It runs in tandem with it, with integration to be offered in the future.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Why Conv-AI</p>
+      <h2>How Conv-AI compares with other platforms.</h2>
+      <p class="lede">Other title review tools can be good at what they do. Here is where Conv-AI is different.</p>
+    </div>
+    <div class="cmp glass rv" role="table" aria-label="Conv-AI compared with other platforms">
+      <div class="cmp-row cmp-head" role="row"><div class="f" role="columnheader"></div><div class="us" role="columnheader"><img src="/assets/logo.png" alt="Conv-AI"></div><div class="them" role="columnheader">Other platforms</div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-token"/></svg></span>Pricing</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>From £0.80 per review</span><span class="d">Pay by token, with prices you can see up front</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Often quote-only, priced per seat or per firm</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-approve"/></svg></span>Contract</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>No minimum term</span><span class="d">No minimum order, pay as you go, with auto top-up if you want it</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Often annual licences with minimum commitments</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-home"/></svg></span>Built for</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>Residential conveyancing</span><span class="d">Conveyancers, consultants and home buyers, freehold titles first</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Often built for large firms and commercial property first</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-doc"/></svg></span>Your own templates and wording</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>Your house style, self-serve</span><span class="d">Upload your template and reports come back in your words, with our concise report always included</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Often a bespoke set-up project</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-shield"/></svg></span>Data</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>Your documents stay yours</span><span class="d">Every page made copyable text, every point linked to its clause, never used to train AI models</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Training and storage terms differ by provider and plan</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-search"/></svg></span>Who's behind it</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>Practising conveyancers</span><span class="d">Built by conveyancers who use it on their own files</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Usually technology teams, some with legal advisers</span></div></div>
+      <div class="cmp-row" role="row"><div class="f" role="rowheader"><span class="tile"><svg class="ic"><use href="#i-clock"/></svg></span>Audit trail</div><div class="us" role="cell"><span class="yes"><svg class="ic"><use href="#i-check"/></svg>Built in on every matter</span><span class="d">Every generation, edit and solicitor approval logged</span></div><div class="them" role="cell"><span class="st exp">Varies</span><span class="d">Depends on the product and plan</span></div></div>
+    </div>
+    <p class="cmp-note">Based on publicly available information about other title review platforms, November 2026. Features and pricing vary by provider and change over time.</p>
   </div>
 </section>
 
@@ -1015,7 +1136,7 @@ footer .ph{white-space:normal}
       <ul>
         <li><strong>Cloudflare</strong>, which hosts this website and provides its domain name services.</li>
         <li><strong>Resend</strong>, which delivers contact form submissions to us and the emails we send from the website.</li>
-        <li><strong>IONOS</strong>, which provides our email mailboxes.</li>
+        <li><strong>Google</strong>, which provides the Gmail inbox where we read and reply to email.</li>
         <li><strong>Google Analytics</strong>, if you accept analytics cookies, which tells us how the site is used.</li>
         <li><strong>Google Fonts</strong>, which supplies the typeface used on this site. Your browser requests the font files from Google, which involves sharing your IP address with Google.</li>
         <li>Our professional advisers, and regulators or authorities where we are legally required to.</li>
@@ -1120,7 +1241,7 @@ footer .ph{white-space:normal}
 <footer>
   <div class="wrap">
     <div class="stack" style="gap:16px"><span class="lg"><img src="/assets/logo.png" alt="Conv-AI"></span><p style="max-width:34ch">Clear property title intelligence, designed for conveyancers, by conveyancers.</p></div>
-    <div><h4>Product</h4><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#platform">Platform</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+    <div><h4>Product</h4><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#platform">Platform</a></li><li><a href="#compare">Why Conv-AI</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
     <div><h4>Company</h4><ul><li><a href="#who">Who it's for</a></li><li><a href="#about">About us</a></li><li><a href="#contact">Get in touch</a></li></ul></div>
     <div><h4>Platform</h4><ul><li><button class="fl" data-login>Log in</button></li><li><a href="#contact">Join the focus group</a></li></ul></div>
     <div class="legal-links" style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:22px"><a href="#privacy">Privacy policy</a><a href="#terms">Terms of use</a><button class="fl" id="ckOpen" hidden>Cookie settings</button><a href="mailto:hello@conv-ai.co.uk">hello@conv-ai.co.uk</a></div>
@@ -1175,12 +1296,72 @@ footer .ph{white-space:normal}
   window.addEventListener('hashchange', route); route();
 
   /* glass light follows the pointer; hero layers drift with it */
-  var s3 = $('#scene3d');
   document.addEventListener('pointermove', function(e){
     var g = e.target.closest && e.target.closest('.glass');
     if(g){ var r = g.getBoundingClientRect(); g.style.setProperty('--mx', (e.clientX - r.left) + 'px'); g.style.setProperty('--my', (e.clientY - r.top) + 'px'); }
-    if(!calm && s3){ s3.style.setProperty('--px', (e.clientX / window.innerWidth - .5).toFixed(3)); s3.style.setProperty('--py', (e.clientY / window.innerHeight - .5).toFixed(3)); }
   }, {passive:true});
+
+  /* hero product carousel */
+  (function(){
+    var hc = $('#hc'), slides = $$('.hc-slide', hc), tabs = $$('.hc-tab', hc), bar = $('.hc-prog i', hc), cur = 0, held = false;
+    function go(i){
+      cur = (i + slides.length) % slides.length;
+      slides.forEach(function(s,n){ s.classList.toggle('on', n === cur); });
+      tabs.forEach(function(t,n){ t.setAttribute('aria-selected', n === cur); });
+      hc.classList.remove('run'); void hc.offsetWidth; if(!held && !calm) hc.classList.add('run');
+    }
+    function hold(){ held = true; hc.classList.remove('run'); }
+    tabs.forEach(function(t,n){ t.addEventListener('click', function(){ hold(); go(n); }); });
+    $('.hc-nav .prev', hc).addEventListener('click', function(){ hold(); go(cur - 1); });
+    $('.hc-nav .next', hc).addEventListener('click', function(){ hold(); go(cur + 1); });
+    bar.addEventListener('animationend', function(){ if(!held) go(cur + 1); });
+    hc.addEventListener('pointerenter', function(){ hc.classList.add('paused'); });
+    hc.addEventListener('pointerleave', function(){ hc.classList.remove('paused'); });
+    $$('.hc-card button', hc).forEach(function(b){ b.addEventListener('click', hold); });
+    var sx = null;
+    hc.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+    hc.addEventListener('touchend', function(e){ if(sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if(Math.abs(dx) > 50){ hold(); go(cur + (dx < 0 ? 1 : -1)); } }, {passive:true});
+    function flash(el){ el.classList.add('show'); clearTimeout(el._t); el._t = setTimeout(function(){ el.classList.remove('show'); }, 2600); }
+
+    var hl = $('#hlBtn'), covs = $$('#hcDoc [data-cov]');
+    hl.addEventListener('click', function(){
+      var on = !covs[0].classList.contains('hit');
+      covs.forEach(function(p,i){ setTimeout(function(){ p.classList.toggle('hit', on); }, on ? i * 250 : 0); });
+      hl.textContent = on ? 'Clear highlights' : 'Highlight covenants';
+    });
+    $('#cpBtn').addEventListener('click', function(){
+      var txt = covs[0].textContent.replace(/^\d+\s+/, '').trim();
+      try { navigator.clipboard.writeText(txt).catch(function(){}); } catch(e){}
+      covs[0].classList.add('hit'); flash($('#cpToast'));
+    });
+
+    var app = $('#hcApp'), pills = $$('.rows .st', app), sum = $('#sumBtn'), run = $('#runBtn'), busy = false;
+    var finals = pills.map(function(p){ return {cls: p.className, html: p.innerHTML}; });
+    run.addEventListener('click', function(){
+      if(busy) return; busy = true;
+      app.classList.remove('summary'); sum.textContent = 'View summary';
+      run.textContent = 'Reading the title…';
+      pills.forEach(function(p){ p.className = 'st read'; p.innerHTML = '<i></i>Reading'; });
+      pills.forEach(function(p,i){ setTimeout(function(){ p.className = finals[i].cls; p.innerHTML = finals[i].html; if(i === pills.length - 1){ run.textContent = 'Run title report'; busy = false; } }, 700 + i * 550); });
+    });
+    sum.addEventListener('click', function(){ var on = app.classList.toggle('summary'); sum.textContent = on ? 'View findings' : 'View summary'; });
+
+    var rep = $('#hcRep'), ap = $('#apBtn'), title = $('#repTitle'), c1 = $('#cov1'), c2 = $('#cov2');
+    var text = {
+      ours: ['What the title means for you', 'You must not run a trade or business from the house.', 'A rule about paying towards the road no longer applies.'],
+      house: ['Report on Title: 14 Alder Row', 'Covenant (a) of the 1962 Conveyance prohibits any trade or business use of the Property.', 'The road-making covenant is spent, as the road has been adopted.']
+    };
+    $$('.seg2 button', rep).forEach(function(b){ b.addEventListener('click', function(){
+      $$('.seg2 button', rep).forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+      var t = text[b.dataset.style]; rep.classList.toggle('housestyle', b.dataset.style === 'house');
+      title.textContent = t[0]; c1.textContent = t[1]; c2.textContent = t[2];
+    }); });
+    ap.addEventListener('click', function(){
+      if(rep.classList.contains('ok')){ rep.classList.remove('ok'); ap.textContent = 'Approve and send'; return; }
+      rep.classList.add('ok'); ap.textContent = 'Reset'; setTimeout(function(){ flash($('#olToast')); }, 400);
+    });
+    go(0);
+  })();
 
   /* reveal on scroll */
   if(!calm && 'IntersectionObserver' in window){

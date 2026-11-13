@@ -1,7 +1,7 @@
 // Conv-AI website Worker. Static files in ./public are served by Cloudflare directly;
 // this script only handles POST /api/contact, which emails the enquiry through Resend.
 //
-// Secret (Workers & Pages > conv-ai-website > Settings > Variables and Secrets, or `npx wrangler secret put RESEND_API_KEY`):
+// Secret (Workers & Pages > conv-ai > Settings > Variables and Secrets, or `npx wrangler secret put RESEND_API_KEY`):
 //   RESEND_API_KEY   API key from resend.com
 // Optional variables (see wrangler.jsonc): EMAIL_FROM, EMAIL_NOTIFY, SITE_URL, COMPANY_OFFICE
 import { confirmation, notification, setOffice } from './email.js';

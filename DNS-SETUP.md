@@ -1,7 +1,7 @@
 # conv-ai.co.uk: IONOS to Cloudflare
 
 Target set-up: Cloudflare runs the DNS and hosts the website. Netlify hosts the platform at app.conv-ai.co.uk.
-IONOS keeps the domain registration and the mailboxes.
+IONOS keeps the domain registration only. Email is Cloudflare Email Routing plus Gmail, sending through Resend.
 
 Hosting the root domain on Cloudflare needs the domain's nameservers to be Cloudflare's, so the DNS has to move.
 Once it does, the records in the IONOS panel stop applying. Nothing needs changing in IONOS before then.
@@ -42,7 +42,7 @@ you. Cloudflare emails you when the domain is active, usually within a few hours
 
 ## 5. Website
 
-Deploy the Worker (see README), then in Workers & Pages > conv-ai-website > Settings > Domains & Routes add the
+Deploy the Worker (see README), then in Workers & Pages > conv-ai > Settings > Domains & Routes add the
 custom domains `conv-ai.co.uk` and `www.conv-ai.co.uk`. Cloudflare creates the DNS records and certificates itself.
 
 ## 6. Platform
@@ -62,9 +62,11 @@ site and redirect URLs in Supabase Auth, and set `APP_URL` in `public/index.html
 3. Do not add a second DMARC record. `_dmarc` already exists.
 4. Verify in Resend, create an API key, and store it as the `RESEND_API_KEY` secret on the Worker.
 
-## 8. Mailbox
+## 8. Mailboxes
 
-Create the `hello@conv-ai.co.uk` mailbox (or a forwarder) in IONOS so enquiries and replies have somewhere to land.
+Receiving: Cloudflare Email Routing forwards hello@, admin@ and support@conv-ai.co.uk to Gmail.
+Sending: Gmail "Send mail as" for each address, through smtp.resend.com (port 587, username `resend`,
+a Resend API key as the password). The IONOS mail records are no longer used.
 
 ## 9. After go-live
 

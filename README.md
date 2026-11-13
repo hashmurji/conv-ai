@@ -33,7 +33,7 @@ repository. Deploy command: `npx wrangler deploy`.
 Dragging the `public` folder into the Cloudflare dashboard uploads the pages only. The contact form needs
 `src/worker.js` too, which only deploys through the two routes above.
 
-Then attach the domain: Workers & Pages > conv-ai-website > Settings > Domains & Routes > Add > Custom domain,
+Then attach the domain: Workers & Pages > conv-ai > Settings > Domains & Routes > Add > Custom domain,
 for `conv-ai.co.uk` and again for `www.conv-ai.co.uk`. See `DNS-SETUP.md` first.
 
 ## Contact form and Resend
