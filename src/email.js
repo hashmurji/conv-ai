@@ -28,7 +28,7 @@ function shell({ siteUrl, logoUrl, preheader, heading, body, footerNote }) {
     </td></tr>
     <tr><td style="padding:22px 20px 0 20px;font-family:${FONT};font-size:12px;line-height:1.6;color:${MUTED};text-align:center;">
       ${footerNote ? esc(footerNote) + '<br>' : ''}${legalLine()}<br>
-      <a href="${esc(siteUrl)}/#privacy" style="color:${FOREST};">Privacy policy</a>
+      <a href="${esc(siteUrl)}/privacy" style="color:${FOREST};">Privacy policy</a>
     </td></tr>
   </table>
 </td></tr></table>

@@ -7,8 +7,11 @@
     "directory": "./public",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    // Only /api/* runs the Worker; every other request is served straight from ./public
-    "run_worker_first": ["/api/*"]
+    // privacy.html and terms.html are served at /privacy and /terms, without a trailing slash.
+    // /privacy/ and /terms/ are permanent redirects in public/_redirects.
+    "html_handling": "auto-trailing-slash",
+    // The Worker handles the contact API, and /404 so that URL is not a 200 copy of the not-found page.
+    "run_worker_first": ["/api/*", "/404", "/404/", "/404.html"]
   },
   "vars": {
     "EMAIL_FROM": "Conv-AI <hello@conv-ai.co.uk>",
