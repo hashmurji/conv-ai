@@ -5,13 +5,16 @@ The platform stays on Netlify at `app.conv-ai.co.uk`.
 
 ```
 public/                 everything visitors download
-  index.html            the site (sections plus #privacy and #terms)
+  index.html            the homepage
+  privacy.html          privacy policy, served at /privacy
+  terms.html            website terms of use, served at /terms
   404.html              not-found page
   og.png                link preview image (1200x630)
   favicon*, icon-*, apple-touch-icon.png, site.webmanifest
   robots.txt, sitemap.xml
-  assets/logo.png, logo-email.png
+  assets/logo.png, logo-email.png, site.css, chrome.js
   _headers              security and cache headers
+  _redirects            permanent redirects, including /index.html to /
 src/worker.js           handles POST /api/contact and emails it through Resend
 src/email.js            branded email templates and the email signature
 email/                  rendered previews of the emails and signature
@@ -50,12 +53,12 @@ the visitor is told it did not send and is asked to email hello@conv-ai.co.uk in
 
 ## Google Analytics
 
-Set `GA_ID` near the top of the script in `public/index.html` to your GA4 measurement ID (`G-...`). Visitors then
+Set `GA_ID` near the top of the script in `public/index.html` to your GA4 measurement ID (`G-...`), and set the same value in `public/assets/chrome.js` so the privacy and terms pages match. Visitors then
 see a consent banner and Analytics loads only if they accept. With `GA_ID` empty there is no banner and no tracking.
 
 ## Log in
 
-The Log in buttons go to `https://app.conv-ai.co.uk` (`APP_URL` near the top of the script in `public/index.html`).
+The Log in buttons go to `https://app.conv-ai.co.uk` (`APP_URL` near the top of the script in `public/index.html`, and the same value in `public/assets/chrome.js`).
 
 ## Trusted by
 

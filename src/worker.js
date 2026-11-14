@@ -1,12 +1,36 @@
-// Conv-AI website Worker. Static files in ./public are served by Cloudflare directly;
-// this script only handles POST /api/contact, which emails the enquiry through Resend.
+// Conv-AI website Worker. Static files in ./public are served by Cloudflare directly.
+// This script handles POST /api/contact (emailed through Resend). It also answers
+// /404 with status 404: _redirects cannot set that status, so the file would otherwise be a 200.
 //
 // Secret (Workers & Pages > conv-ai > Settings > Variables and Secrets, or `npx wrangler secret put RESEND_API_KEY`):
 //   RESEND_API_KEY   API key from resend.com
 // Optional variables (see wrangler.jsonc): EMAIL_FROM, EMAIL_NOTIFY, SITE_URL, COMPANY_OFFICE
 import { confirmation, notification, setOffice } from './email.js';
 
-const json = (status, body) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
+const SECURITY = {
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'SAMEORIGIN',
+};
+
+const json = (status, body) => new Response(JSON.stringify(body), {
+  status,
+  headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...SECURITY },
+});
+
+// /404 is a real file, so static hosting would serve it as 200. _redirects cannot set a 404 status.
+async function notFoundPage(request, env) {
+  const url = new URL(request.url);
+  url.pathname = '/404.html';
+  const asset = await env.ASSETS.fetch(new Request(url, { method: 'GET' }));
+  const headers = new Headers(asset.headers);
+  for (const [key, value] of Object.entries(SECURITY)) headers.set(key, value);
+  headers.set('X-Robots-Tag', 'noindex');
+  headers.set('Cache-Control', 'no-store');
+  headers.delete('Location');
+  return new Response(asset.body, { status: 404, headers });
+}
 
 async function send(env, message) {
   const res = await fetch('https://api.resend.com/emails', {
@@ -57,6 +81,7 @@ async function contact(request, env) {
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if (pathname === '/404' || pathname === '/404/' || pathname === '/404.html') return notFoundPage(request, env);
     if (pathname === '/api/contact') return contact(request, env);
     if (pathname.startsWith('/api/')) return json(404, { error: 'Not found' });
     return env.ASSETS.fetch(request);
